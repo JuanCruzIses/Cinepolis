@@ -1785,7 +1785,88 @@ def crudPeliculas():
         else:
             print("Opción inválida. Por favor, seleccione una opción del 1 al 5.")
         print("1. Crear película \n2. Editar película \n3. Eliminar película \n4. Mostrar películas \n5. Volver al menú principal")
-        opcionElegida = int(input("Seleccione la opción a ejecutar:"))
+        opcionElegida = int(input("Seleccione la opción a ejecutar: "))
     return
+
+# Gestión de Usuarios (CRUD)
+def crearUsuario():
     
-crudPeliculas()
+    return
+
+def editarUsuario():
+    
+    return
+
+def eliminarUsuario():
+    
+    return
+
+def mostrarUsuarios():
+    
+    return
+
+def crudUsuarios():
+    print("----- CRUD de Usuarios -----")
+    print("1. Crear usuario \n2. Editar usuario \n3. Eliminar usuario \n4. Mostrar usuarios \n5. Volver al menu principal")
+    opcion = int(input("Seleccione la opcion: "))
+    while opcion != 5:
+        if opcion == 1:
+            crearUsuario()
+        elif opcion == 2:
+            editarUsuario()
+        elif opcion == 3:
+            eliminarUsuario()
+        elif opcion == 4:
+            mostrarUsuarios()
+        else:
+            print("Opción inválida")
+        print("\n1. Crear usuario \n2. Editar usuario \n3. Eliminar usuario \n4. Mostrar usuarios \n5. Volver al menu principal")
+        opcion = int(input("Seleccione la opcion: "))
+    return
+
+
+# Gestion de Reseñas
+def crearReseña():
+    
+    return
+
+def mostrarReseñas():
+    
+    return
+
+def crudReseñas():
+    print("----- Gestion de Reseñas -----")
+    print("1. Crear reseña \n2. Mostrar reseñas \n3. Volver al menu principal")
+    opcion = int(input("Seleccione la opcion: "))
+    while opcion != 3:
+        if opcion == 1:
+            crearReseña()
+        elif opcion == 2:
+            mostrarReseñas()
+        else:
+            print("Opcion invalida")
+        print("\n1. Crear reseña \n2. Mostrar reseñas \n3. Volver al menu principal")
+        opcion = int(input("Seleccione la opcion: "))
+    return
+
+
+# Menu Principal
+def menuPrincipal():
+    print("----- Sistema de Gestion -----")
+    print("1. Peliculas \n2. Usuarios \n3. Reseñas \n4. Salir")
+    opcion = int(input("Seleccione la opcion: "))
+    while opcion != 4:
+        if opcion == 1:
+            crudPeliculas()
+        elif opcion == 2:
+            crudUsuarios()
+        elif opcion == 3:
+            crudReseñas()
+        else:
+            print("Opcion invalida")
+        print("\n1. Peliculas \n2. Usuarios \n3. Reseñas \n4. Salir")
+        opcion = int(input("Seleccione la opcion: "))
+
+
+# Ejecutar menu principal
+menuPrincipal()
