@@ -1711,14 +1711,26 @@ Reseñas (creación y vinculación básica)
 """
 
 # ---> Funciones para la gestión de películas (CRUD) <---
-def crearPelicula():
-    return
+def crearPelicula(titulo, estreno, director, generos, poster="", sinopsis=""):
+
+    nuevo_id = max([p["id"] for p in listaPeliculas], default=0) + 1 # En esta linea genero un id unico que siempre va a ser el ultimo mas uno
+
+    nueva_pelicula = {
+        "id": nuevo_id,
+        "titulo": titulo,
+        "estreno": estreno,
+        "director": director,
+        "generos": generos,
+        "poster": poster,
+        "sinopsis": sinopsis
+    }
+
+    listaPeliculas.append(nueva_pelicula)
+    return nueva_pelicula
 
 def editarPelicula():
     return
 
-def editarPelicula():
-    return
 
 def eliminarPelicula():
     print("")
