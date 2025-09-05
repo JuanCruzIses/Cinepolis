@@ -1711,56 +1711,69 @@ Reseñas (creación y vinculación básica)
 """
 
 # ---> Funciones para la gestión de películas (CRUD) <---
-def crearPelicula(titulo, estreno, director, generos, poster="", sinopsis=""):
-
-    nuevo_id = max([p["id"] for p in listaPeliculas], default=0) + 1 # En esta linea genero un id unico que siempre va a ser el ultimo mas uno
-
-    nueva_pelicula = {
-        "id": nuevo_id,
-        "titulo": titulo,
-        "estreno": estreno,
-        "director": director,
-        "generos": generos,
-        "poster": poster,
-        "sinopsis": sinopsis
-    }
-
-    listaPeliculas.append(nueva_pelicula)
-    return nueva_pelicula
-
-def editarPelicula():
-    return
-
-
-def eliminarPelicula():
+def crearPelicula():
     print("")
-    print("----- Eliminar películas -----")
-    pelicula_a_eliminar = input('Ingrese el título de la película que desea eliminar o "0" para salir: ')
+    print("----- Crear películas -----")
 
-    while pelicula_a_eliminar != "0":
-        peliculaEncontrada = False
-        for pelicula in listaPeliculas:
-            if pelicula["titulo"].lower() == pelicula_a_eliminar.lower():
-                peliculaEncontrada = True
-                confirmacion = input(f"¿Está seguro de que desea eliminar '{pelicula['titulo']}'? (Responda: Si / No)")
-                while confirmacion.lower() != "si" and confirmacion.lower() != "no":
-                    confirmacion = input("Respuesta inválida. Por favor, responda 'Si' o 'No': ")
-                if confirmacion.lower() == 'si':
-                    listaPeliculas.remove(pelicula)
-                    print(f"La película '{pelicula['titulo']}' ha sido eliminada.")
-                    print("")
-                    pelicula_a_eliminar = input('Ingrese el título de la película que desea eliminar o "0" para salir: ')
-                else:
-                    print("Eliminación cancelada.")
-            else:
-                peliculaEncontrada = False
-        if peliculaEncontrada == False and pelicula_a_eliminar != "0":
-            print("")
-            print(f"La película '{pelicula_a_eliminar}' no fue encontrada.")
-            pelicula_a_eliminar = input('Ingrese el título de la película que desea eliminar o "0" para salir:')
+    continuar = "si"
+    while continuar.lower() == "si":
+        if listaPeliculas:
+            nuevo_id = max(p["id"] for p in listaPeliculas) + 1 # En esta linea genero un id unico que siempre va a ser el ultimo mas uno
+        else:
+            nuevo_id = 1
+
+        titulo = input("Ingrese el título de la película: ")
+        while titulo == "":
+            titulo = input("El título no puede estar vacío. Ingrese el título: ")
+
+        existe = False
+        for p in listaPeliculas:
+            if p["titulo"].lower() == titulo.lower():
+                existe = True
+        if existe:
+            print("Ya existe una película con ese título.")
+            continuar = input("¿Desea intentar con otra película? Si o No: ")
+            while continuar.lower() != "si" and continuar.lower() != "no":
+                continuar = input("Respuesta inválida. Responda Si o No: ")
+            continue
+
+        estreno = input("Ingrese el año de estreno: ")
+        while not estreno.isdigit():
+            print("Debe ingresar un número válido para el año.")
+            estreno = input("Ingrese el año de estreno: ")
+        estreno = int(estreno)
+
+        director = input("Ingrese el director: ")
+        while director == "":
+            director = input("El director no puede estar vacío. Ingrese el director: ")
+
+        generos_texto = input("Ingrese los géneros (separados por comas): ")
+        while generos_texto == "":
+            generos_texto = input("Debe ingresar al menos un género: ")
+        generos = generos_texto.split(",")
+
+        sinopsis = input("Ingrese la sinopsis (opcional): ")
+        poster = input("Ingrese la URL del póster (opcional): ")
+
+        nueva_pelicula = {
+            "id": nuevo_id,
+            "titulo": titulo,
+            "estreno": estreno,
+            "director": director,
+            "generos": generos,
+            "sinopsis": sinopsis,
+            "poster": poster
+        }
+
+        listaPeliculas.append(nueva_pelicula)
+        print("La película '" + nueva_pelicula["titulo"] + "' fue creada exitosamente con ID " + str(nueva_pelicula["id"]) + ".")
+        print("")
+
+        continuar = input("¿Desea crear otra película? (Si / No): ")
+        while continuar.lower() != "si" and continuar.lower() != "no":
+            continuar = input("Respuesta inválida. Responda 'Si' o 'No': ")
                     
         
-
 
 def mostrarPeliculas():
     print("")
