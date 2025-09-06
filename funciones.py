@@ -1773,6 +1773,52 @@ def crearPelicula():
         while continuar.lower() != "si" and continuar.lower() != "no":
             continuar = input("Respuesta inválida. Responda 'Si' o 'No': ")
                     
+def editarPelicula():
+    print("")
+    print("----- Editar películas -----")
+    pelicula_a_editar = input('Ingrese el título de la película que desea editar o "0" para salir: ')
+
+    while pelicula_a_editar != "0":
+        peliculaEncontrada = False
+        for pelicula in listaPeliculas:
+            if pelicula["titulo"].lower() == pelicula_a_editar.lower():
+                peliculaEncontrada = True
+                print("Editando la película:", pelicula["titulo"])
+
+                nuevo_titulo = input("Nuevo título (Enter para mantener el actual): ")
+                if nuevo_titulo != "":
+                    pelicula["titulo"] = nuevo_titulo
+
+                nuevo_estreno = input("Nuevo año de estreno (Enter para mantener el actual): ")
+                if nuevo_estreno != "":
+                    if nuevo_estreno.isdigit():
+                        pelicula["estreno"] = int(nuevo_estreno)
+                    else:
+                        print("El año ingresado no es válido. Se mantiene el anterior.")
+
+                nuevo_director = input("Nuevo director (Enter para mantener el actual): ")
+                if nuevo_director != "":
+                    pelicula["director"] = nuevo_director
+
+                nuevos_generos = input("Nuevos géneros (separados por comas, Enter para mantener los actuales): ")
+                if nuevos_generos != "":
+                    pelicula["generos"] = nuevos_generos.split(",")
+
+                nueva_sinopsis = input("Nueva sinopsis (Enter para mantener la actual): ")
+                if nueva_sinopsis != "":
+                    pelicula["sinopsis"] = nueva_sinopsis
+
+                nuevo_poster = input("Nueva URL del póster (Enter para mantener la actual): ")
+                if nuevo_poster != "":
+                    pelicula["poster"] = nuevo_poster
+
+                print("La película fue actualizada correctamente.")
+                print("")
+
+        if peliculaEncontrada == False:
+            print("La película '" + pelicula_a_editar + "' no fue encontrada.")
+
+        pelicula_a_editar = input('Ingrese el título de otra película a editar o "0" para salir: ')
         
 
 def mostrarPeliculas():
@@ -1791,7 +1837,6 @@ def mostrarPeliculas():
         print("")
         print("-------------------------------")
         print("")
-
 
 def crudPeliculas():
     print("----- CRUD de Películas -----")
