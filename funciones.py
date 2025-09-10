@@ -1341,357 +1341,408 @@ listaPeliculas = [
 
 ]
 #Listado de 50 usuarios (id, usuario, email, img, cantidad_reseñas)
+
 listaUsuarios = [
     {
         "id": 1,
         "usuario": "user1",
         "email": "user1@example.com",
         "img": "",
-        "cantidad_reseñas": 5
+        "cantidad_reseñas": 5,
+        "contraseña": "contraseña1"
     },
     {
         "id": 2,
         "usuario": "user2",
         "email": "user2@example.com",
         "img": "",
-        "cantidad_reseñas": 3
+        "cantidad_reseñas": 3,
+        "contraseña": "contraseña2"
     },
     {
         "id": 3,
         "usuario": "user3",
         "email": "user3@example.com",
         "img": "",
-        "cantidad_reseñas": 7
+        "cantidad_reseñas": 7,
+        "contraseña": "contraseña3"
     },
     {
         "id": 4,
         "usuario": "user4",
         "email": "user4@example.com",
         "img": "",
-        "cantidad_reseñas": 2
+        "cantidad_reseñas": 2,
+        "contraseña": "contraseña4"
     },
     {
         "id": 5,
         "usuario": "user5",
         "email": "user5@example.com",
         "img": "",
-        "cantidad_reseñas": 10
+        "cantidad_reseñas": 10,
+        "contraseña": "contraseña5"
     },
     {
         "id": 6,
         "usuario": "user6",
         "email": "user6@example.com",
         "img": "",
-        "cantidad_reseñas": 1
+        "cantidad_reseñas": 1,
+        "contraseña": "contraseña6"
     },
     {
         "id": 7,
         "usuario": "user7",
         "email": "user7@example.com",
         "img": "",
-        "cantidad_reseñas": 4
+        "cantidad_reseñas": 4,
+        "contraseña": "contraseña7"
     },
     {
         "id": 8,
         "usuario": "user8",
         "email": "user8@example.com",
         "img": "",
-        "cantidad_reseñas": 6
+        "cantidad_reseñas": 6,
+        "contraseña": "contraseña8"
     },
     {
         "id": 9,
         "usuario": "user9",
         "email": "user9@example.com",
         "img": "",
-        "cantidad_reseñas": 9
+        "cantidad_reseñas": 9,
+        "contraseña": "contraseña9"
     },
     {
         "id": 10,
         "usuario": "user10",
         "email": "user10@example.com",
         "img": "",
-        "cantidad_reseñas": 8
+        "cantidad_reseñas": 8,
+        "contraseña": "contraseña10"
     },
     {
         "id": 11,
         "usuario": "user11",
         "email": "user11@example.com",
         "img": "",
-        "cantidad_reseñas": 0
+        "cantidad_reseñas": 0,
+        "contraseña": "contraseña11"
     },
     {
         "id": 12,
         "usuario": "user12",
         "email": "user12@example.com",
         "img": "",
-        "cantidad_reseñas": 12
+        "cantidad_reseñas": 12,
+        "contraseña": "contraseña12"
     },
     {
         "id": 13,
         "usuario": "user13",
         "email": "user13@example.com",
         "img": "",
-        "cantidad_reseñas": 15
+        "cantidad_reseñas": 15,
+        "contraseña": "contraseña13"
     },
     {
         "id": 14,
         "usuario": "user14",
         "email": "user14@example.com",
         "img": "",
-        "cantidad_reseñas": 2
+        "cantidad_reseñas": 2,
+        "contraseña": "contraseña14"
     },
     {
         "id": 15,
         "usuario": "user15",
         "email": "user15@example.com",
         "img": "",
-        "cantidad_reseñas": 5
+        "cantidad_reseñas": 5,
+        "contraseña": "contraseña15"
     },
     {
         "id": 16,
         "usuario": "user16",
         "email": "user16@example.com",
         "img": "",
-        "cantidad_reseñas": 7
+        "cantidad_reseñas": 7,
+        "contraseña": "contraseña16"
     },
     {
         "id": 17,
         "usuario": "user17",
         "email": "user17@example.com",
         "img": "",
-        "cantidad_reseñas": 11
+        "cantidad_reseñas": 11,
+        "contraseña": "contraseña17"
     },
     {
         "id": 18,
         "usuario": "user18",
         "email": "user18@example.com",
         "img": "",
-        "cantidad_reseñas": 6
+        "cantidad_reseñas": 6,
+        "contraseña": "contraseña18"
     },
     {
         "id": 19,
         "usuario": "user19",
         "email": "user19@example.com",
         "img": "",
-        "cantidad_reseñas": 13
+        "cantidad_reseñas": 13,
+        "contraseña": "contraseña19"
     },
     {
         "id": 20,
         "usuario": "user20",
         "email": "user20@example.com",
         "img": "",
-        "cantidad_reseñas": 9
+        "cantidad_reseñas": 9,
+        "contraseña": "contraseña20"
     },
     {
         "id": 21,
         "usuario": "user21",
         "email": "user21@example.com",
         "img": "",
-        "cantidad_reseñas": 1
+        "cantidad_reseñas": 1,
+        "contraseña": "contraseña21"
     },
     {
         "id": 22,
         "usuario": "user22",
         "email": "user22@example.com",
         "img": "",
-        "cantidad_reseñas": 3
+        "cantidad_reseñas": 3,
+        "contraseña": "contraseña22"
     },
     {
         "id": 23,
         "usuario": "user23",
         "email": "user23@example.com",
         "img": "",
-        "cantidad_reseñas": 14
+        "cantidad_reseñas": 14,
+        "contraseña": "contraseña23"
     },
     {
         "id": 24,
         "usuario": "user24",
         "email": "user24@example.com",
         "img": "",
-        "cantidad_reseñas": 7
+        "cantidad_reseñas": 7,
+        "contraseña": "contraseña24"
     },
     {
         "id": 25,
         "usuario": "user25",
         "email": "user25@example.com",
         "img": "",
-        "cantidad_reseñas": 4
+        "cantidad_reseñas": 4,
+        "contraseña": "contraseña25"
     },
     {
         "id": 26,
         "usuario": "user26",
         "email": "user26@example.com",
         "img": "",
-        "cantidad_reseñas": 8
+        "cantidad_reseñas": 8,
+        "contraseña": "contraseña26"
     },
     {
         "id": 27,
         "usuario": "user27",
         "email": "user27@example.com",
         "img": "",
-        "cantidad_reseñas": 6
+        "cantidad_reseñas": 6,
+        "contraseña": "contraseña27"
     },
     {
         "id": 28,
         "usuario": "user28",
         "email": "user28@example.com",
         "img": "",
-        "cantidad_reseñas": 10
+        "cantidad_reseñas": 10,
+        "contraseña": "contraseña28"
     },
     {
         "id": 29,
         "usuario": "user29",
         "email": "user29@example.com",
         "img": "",
-        "cantidad_reseñas": 12
+        "cantidad_reseñas": 12,
+        "contraseña": "contraseña29"
     },
     {
         "id": 30,
         "usuario": "user30",
         "email": "user30@example.com",
         "img": "",
-        "cantidad_reseñas": 2
+        "cantidad_reseñas": 2,
+        "contraseña": "contraseña30"
     },
     {
         "id": 31,
         "usuario": "user31",
         "email": "user31@example.com",
         "img": "",
-        "cantidad_reseñas": 9
+        "cantidad_reseñas": 9,
+        "contraseña": "contraseña31"
     },
     {
         "id": 32,
         "usuario": "user32",
         "email": "user32@example.com",
         "img": "",
-        "cantidad_reseñas": 7
+        "cantidad_reseñas": 7,
+        "contraseña": "contraseña32"
     },
     {
         "id": 33,
         "usuario": "user33",
         "email": "user33@example.com",
         "img": "",
-        "cantidad_reseñas": 11
+        "cantidad_reseñas": 11,
+        "contraseña": "contraseña33"
     },
     {
         "id": 34,
         "usuario": "user34",
         "email": "user34@example.com",
         "img": "",
-        "cantidad_reseñas": 0
+        "cantidad_reseñas": 0,
+        "contraseña": "contraseña34"
     },
     {
         "id": 35,
         "usuario": "user35",
         "email": "user35@example.com",
         "img": "",
-        "cantidad_reseñas": 4
+        "cantidad_reseñas": 4,
+        "contraseña": "contraseña35"
     },
     {
         "id": 36,
         "usuario": "user36",
         "email": "user36@example.com",
         "img": "",
-        "cantidad_reseñas": 13
+        "cantidad_reseñas": 13,
+        "contraseña": "contraseña36"
     },
     {
         "id": 37,
         "usuario": "user37",
         "email": "user37@example.com",
         "img": "",
-        "cantidad_reseñas": 15
+        "cantidad_reseñas": 15,
+        "contraseña": "contraseña37"
     },
     {
         "id": 38,
         "usuario": "user38",
         "email": "user38@example.com",
         "img": "",
-        "cantidad_reseñas": 1
+        "cantidad_reseñas": 1,
+        "contraseña": "contraseña38"
     },
     {
         "id": 39,
         "usuario": "user39",
         "email": "user39@example.com",
         "img": "",
-        "cantidad_reseñas": 5
+        "cantidad_reseñas": 5,
+        "contraseña": "contraseña39"
     },
     {
         "id": 40,
         "usuario": "user40",
         "email": "user40@example.com",
         "img": "",
-        "cantidad_reseñas": 14
+        "cantidad_reseñas": 14,
+        "contraseña": "contraseña40"
     },
     {
         "id": 41,
         "usuario": "user41",
         "email": "user41@example.com",
         "img": "",
-        "cantidad_reseñas": 3
+        "cantidad_reseñas": 3,
+        "contraseña": "contraseña41"
     },
     {
         "id": 42,
         "usuario": "user42",
         "email": "user42@example.com",
         "img": "",
-        "cantidad_reseñas": 9
+        "cantidad_reseñas": 9,
+        "contraseña": "contraseña42"
     },
     {
         "id": 43,
         "usuario": "user43",
         "email": "user43@example.com",
         "img": "",
-        "cantidad_reseñas": 6
+        "cantidad_reseñas": 6,
+        "contraseña": "contraseña43"
     },
     {
         "id": 44,
         "usuario": "user44",
         "email": "user44@example.com",
         "img": "",
-        "cantidad_reseñas": 2
+        "cantidad_reseñas": 2,
+        "contraseña": "contraseña44"
     },
     {
         "id": 45,
         "usuario": "user45",
         "email": "user45@example.com",
         "img": "",
-        "cantidad_reseñas": 12
+        "cantidad_reseñas": 12,
+        "contraseña": "contraseña45"
     },
     {
         "id": 46,
         "usuario": "user46",
         "email": "user46@example.com",
         "img": "",
-        "cantidad_reseñas": 7
+        "cantidad_reseñas": 7,
+        "contraseña": "contraseña46"
     },
     {
         "id": 47,
         "usuario": "user47",
         "email": "user47@example.com",
         "img": "",
-        "cantidad_reseñas": 8
+        "cantidad_reseñas": 8,
+        "contraseña": "contraseña47"
     },
     {
         "id": 48,
         "usuario": "user48",
         "email": "user48@example.com",
         "img": "",
-        "cantidad_reseñas": 10
+        "cantidad_reseñas": 10,
+        "contraseña": "contraseña48"
     },
     {
         "id": 49,
         "usuario": "user49",
         "email": "user49@example.com",
         "img": "",
-        "cantidad_reseñas": 5
+        "cantidad_reseñas": 5,
+        "contraseña": "contraseña49"
     },
     {
         "id": 50,
         "usuario": "user50",
         "email": "user50@example.com",
         "img": "",
-        "cantidad_reseñas": 11
-    },
+        "cantidad_reseñas": 11,
+        "contraseña": "contraseña50"
+    }
 ]
 
 
@@ -1860,8 +1911,51 @@ def crudPeliculas():
 
 # Gestión de Usuarios (CRUD)
 def crearUsuario():
-    
+    if len(listaUsuarios) == 0:
+        nuevo_id = 1
+    else:
+        nuevo_id = listaUsuarios[-1]["id"] + 1  # agarro el ultimo id y le agrego 1
+
+    usuario = input("Ingrese nombre de usuario: ")
+    while usuario == "":
+        usuario = input("El usuario no puede estar vacio. Ingrese nombre de usuario: ")
+
+    for i in range(len(listaUsuarios)):
+        if listaUsuarios[i]["usuario"] == usuario:
+            print("Ya existe un usuario con ese nombre.")
+            return
+
+    email = input("Ingrese email: ")
+    contraseña = input("Ingrese contraseña: ")
+    img = input("Ingrese URL de imagen (opcional): ")
+
+    nuevo_usuario = {
+        "id": nuevo_id,
+        "usuario": usuario,
+        "email": email,
+        "img": img,
+        "cantidad_reseñas": 0,
+        "contraseña": contraseña
+    }
+
+    listaUsuarios.append(nuevo_usuario)
+    print("Usuario '" + usuario + "' creado exitosamente con ID " + str(nuevo_id))
     return
+
+
+def iniciar_sesion():
+    email = input("Ingrese su email: ")
+    contraseña = input("Ingrese su contraseña: ")
+
+    for i in range(len(listaUsuarios)):
+        if listaUsuarios[i]["email"] == email:
+            if listaUsuarios[i]["contraseña"] == contraseña:
+                print("Inicio de sesion exitoso, bienvenido " + listaUsuarios[i]["usuario"])
+                return listaUsuarios[i]
+            else:
+                print("Contraseña incorrecta.")
+                return 1
+    return 1
 
 def editarUsuario():
     
@@ -1872,25 +1966,33 @@ def eliminarUsuario():
     return
 
 def mostrarUsuarios():
-    
+    print("----- Listado de usuarios -----")
+    if len(listaUsuarios) == 0:
+        print("No hay usuarios registrados.")
+        return
+
+    for u in listaUsuarios:
+        print("ID:", u["id"], "| Usuario:", u["usuario"], "| Email:", u["email"], "| Img:", u["img"], "| Reseñas:", u["cantidad_reseñas"])
     return
 
 def crudUsuarios():
     print("----- CRUD de Usuarios -----")
-    print("1. Crear usuario \n2. Editar usuario \n3. Eliminar usuario \n4. Mostrar usuarios \n5. Volver al menu principal")
+    print("1. Crear usuario \n2. Iniciar Sesion \n3. Editar usuario \n4. Eliminar usuario \n5. Mostrar usuarios \n6. Volver al menu principal")
     opcion = int(input("Seleccione la opcion: "))
-    while opcion != 5:
+    while opcion != 6:
         if opcion == 1:
             crearUsuario()
         elif opcion == 2:
-            editarUsuario()
+            iniciar_sesion()
         elif opcion == 3:
-            eliminarUsuario()
+            editarUsuario()
         elif opcion == 4:
+            eliminarUsuario()
+        elif opcion == 5:
             mostrarUsuarios()
         else:
             print("Opción inválida")
-        print("\n1. Crear usuario \n2. Editar usuario \n3. Eliminar usuario \n4. Mostrar usuarios \n5. Volver al menu principal")
+        print("1. Crear usuario \n2. Iniciar Sesion \n3. Editar usuario \n4. Eliminar usuario \n5. Mostrar usuarios \n6. Volver al menu principal")
         opcion = int(input("Seleccione la opcion: "))
     return
 
