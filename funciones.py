@@ -2351,7 +2351,33 @@ def iniciar_sesion():
     return 1
 
 def editarUsuario():
-    
+    nombre_usuario = input("Ingrese el nombre de usuario que desea editar: ")
+
+    usuario_obj = None
+    for u in listaUsuarios:
+        if u["usuario"].lower() == nombre_usuario.lower():
+            usuario_obj = u
+
+    if usuario_obj is None:
+        print("No se encontro un usuario con ese nombre")
+        return
+
+    print("Deja el campo vacio si no queres cambiarlo")
+    nuevo_usuario = input(f"Nuevo nombre de usuario (actual: {usuario_obj['usuario']}): ")
+    nuevo_email = input(f"Nuevo email (actual: {usuario_obj['email']}): ")
+    nueva_img = input(f"Nueva url de imagen (actual: {usuario_obj['img']}): ")
+    nueva_contraseña = input("Nueva contraseña: ")
+
+    if nuevo_usuario != "":
+        usuario_obj["usuario"] = nuevo_usuario
+    if nuevo_email != "":
+        usuario_obj["email"] = nuevo_email
+    if nueva_img != "":
+        usuario_obj["img"] = nueva_img
+    if nueva_contraseña != "":
+        usuario_obj["contraseña"] = nueva_contraseña
+
+    print("El usuario ha sido actualizado correctamente")
     return
 
 def eliminarUsuario():
