@@ -2469,11 +2469,11 @@ def crearResenas():
                 continuar = input("Respuesta inválida. Responda Si o No: ")
             continue
 
-        puntuacion = input("Ingrese la puntuación (0 a 10): ")
+        puntuacion = float(input("Ingrese la puntuación (0 a 10): "))
         while puntuacion < 0 or puntuacion > 10:
             print("La puntuación debe ser un número entre 0 y 10.")
-            puntuacion = input("Ingrese la puntuación (0 a 10): ")
-        puntuacion = float(puntuacion)
+            puntuacion = float(input("Ingrese la puntuación (0 a 10): "))
+    
 
         titulo_resena = input("Ingrese el título de la reseña: ")
         while titulo_resena == "":
@@ -2513,7 +2513,7 @@ def mostrarResenas():
         titulo = resena["titulo"]
         comentario = resena["comentario"]
 
-        print(f"ID: {id} Usuario: {usuario} Película: {pelicula} Puntuación: {puntuacion} Título: {titulo} Comentario: {comentario}")
+        print(f"ID: {id} \nUsuario: {usuario} \nPelícula: {pelicula} \nPuntuación: {puntuacion} \nTítulo: {titulo} \nComentario: {comentario}")
         print("")
         print("-------------------------------")
         print("")
@@ -2524,9 +2524,9 @@ def crudReseñas():
     opcion = int(input("Seleccione la opcion: "))
     while opcion != 3:
         if opcion == 1:
-            crearReseña()
+            crearResenas()
         elif opcion == 2:
-            mostrarReseñas()
+            mostrarResenas()
         else:
             print("Opcion invalida")
         print("\n1. Crear reseña \n2. Mostrar reseñas \n3. Volver al menu principal")
