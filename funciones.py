@@ -2355,7 +2355,29 @@ def editarUsuario():
     return
 
 def eliminarUsuario():
+
+    usuario_eliminar = input("Ingrese el nombre de usuario a eliminar: ")
     
+    usuario_obj = ""
+    for u in listaUsuarios:
+        if u["usuario"].lower() == usuario_eliminar.lower():
+            usuario_obj = u
+            break
+
+    if not usuario_obj:
+        print("No se encontró un usuario con ese nombre.")
+        return
+    
+    i = 0
+    while i < len(listaResenas):
+        if listaResenas[i]["usuario"].lower() == usuario_eliminar.lower():
+            del listaResenas[i]
+        else:
+            i += 1
+
+    listaUsuarios.remove(usuario_obj)
+
+    print(f"El usuario '{usuario_eliminar}' y sus reseñas han sido eliminados correctamente.")
     return
 
 def mostrarUsuarios():
