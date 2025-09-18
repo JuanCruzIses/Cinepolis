@@ -2415,10 +2415,47 @@ def crudUsuarios():
 # Gestion de Reseñas
 def crearReseña():
     
-    return
+    if listaResenas:
+        nuevo_id = max(r["id"] for r in listaResenas) + 1
+    else:
+        nuevo_id = 1
+    
+    usuario = input("Ingrese el nombre de usuario: ")
+    pelicula = input("Ingrese el nombre de la película: ")
+    puntuacion = input("Ingrese la puntuación (número): ")
+    titulo = input("Ingrese el título de la reseña: ")
+    comentario = input("Ingrese el comentario: ")
+
+    reseña = {
+        "id": nuevo_id,
+        "usuario": usuario,
+        "pelicula": pelicula,
+        "puntuacion": puntuacion,
+        "titulo": titulo,
+        "comentario": comentario
+    }
+
+    listaResenas.append(reseña)
+    print("La reseña ha sido creada correctamente.")
+
+    return reseña
+
 
 def mostrarReseñas():
-    
+    pelicula = input("Ingrese el nombre de la película para ver sus reseñas: ")
+
+    print(f"Reseñas de la película: {pelicula}\n")
+    encontradas = False
+    for r in listaResenas:
+        if r["pelicula"].lower() == pelicula.lower():
+            encontradas = True
+            
+            print(f"Usuario: {r['usuario']}")
+            print(f"Puntuación: {r['puntuacion']}")
+            print(f"Título: {r['titulo']}")
+            print(f"Comentario: {r['comentario']}\n")
+    if not encontradas:
+        print("No hay reseñas para esta película.")
     return
 
 def crudReseñas():
