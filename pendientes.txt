@@ -1,0 +1,74 @@
+Consideraciones:
+**Una vez que el usuario inicia sesion, queda guardado en el archivo principal los datos del usuario en la variable usuario
+  |_Estos datos pueden ser usados para procesos de verificacion de rol, conocer cantidad de reseñas, entre otros procedimientos.
+
+== PENDIENTES ==
+Aplicar logica en los modulos CRUD para que diferencie el acceso a determinadas funciones si el usuario no esta logueado
+Si el usuario NO esta logueado
+|_No debe poder crear reseñas
+|_No debe poder editar usuario
+|_No debe poder eliminar usuario
+
+Si el usuario esta logueado
+|_No debe poder iniciar sesion
+|_No debe poder registrar usuario
+
+Si el usuario NO tiene rol admin
+|_No debe poder crear pelicula
+|_No debe poder editar pelicula
+|_No debe poder eliminar reseña
+|_No debe poder eliminar usuario
+
+
+Ejemplo: si el usuario no inicia sesion, no deberia poder acceder a crear reseñas, editar reseña, entre otras.
+
+-- CRUD USUARIOS --
+Funcion crearUsuarios:
+	-Validar que el mail no se encuentre ya registrado
+	-Validar que la contraseña tenga 8 caracteres o mas
+	-Validar que la contraseña tenga al menos 5 letras y 3 numeros
+	|_Usar expresiones regulares para esto
+	-Agregar campo de confirmar contraseña (confirmarContrasena) y comprobar que sea igual a la contraseña ingresada
+
+
+Funcion iniciarSesion:
+	-Usar filter y lambda para buscar un usuario que coincida con el mail
+	|_Si no encuentra ninguno, indicarlo en un mensaje
+
+Funcion editarUsuario:
+	-Solicitar mail y contraseña para acceder a la edición del usuario
+	|_Usar filter y lamba para buscar un mail que coincida en la base de datos
+		|_Si hay un usuario encontrado, verificar que la contraseña ingresada coincida
+
+Funcion eliminarUsuario:
+	-Dos tipos de acceso
+		|_Acceso usuario con rol "admin" --> puede eliminar directo cualquier usuario ingresando el mail
+		|_Acceso usuario con rol "user" --> (idem lógica de editar usuario):
+			-Usar filter y lamba para buscar un mail que coincida en la base de datos
+			-Si hay un usuario encontrado, verificar que la contraseña ingresada coincida
+			-Si la contraseña coincide, preguntar confirmación de eliminación de cuenta
+			|_Si confirma usar el método delete listaUsuarios[numeroIndiceCorrespondiente] u otro indicador
+
+
+-- CRUD PELICULAS --
+Crear funcion buscarPelicula:
+    -Solicitar al usuario que ingrese el nombre de la pelicula
+    -Usar expresiones regulares (debe buscar similitudes por palabra, ejemplo: "el " = "El padrino", "El transportador", "El dia despues de mañana")
+	    |_Combinar con map y funciones lambda para generar la lista de coincidencias
+        |_Aplicar un bucle for en la lista de coincidencias y que devuelva un listado con selector por números 1,2,3 (ejemplo: Si busca "Harry potter" debería devolver una lista con "Harry potter I", "Harry potter II", "Harry potter III", etc)
+        |_A partir de la eleccion del usuario que retorne el diccionario de la pelicula elegida
+
+Funcion editarPelicula:
+    -Implementar la funcion buscarPelicula como parte del proceso de edicion de pelicula
+
+Funcion eliminarPeliculas:
+    -Agregar función de eliminar reseña (se debe comprobar que sea un usuario con "rol": "admin")
+    -Implementar la funcion buscarPelicula como parte del proceso de eliminacion de pelicula
+
+-- CRUD RESEÑAS --
+Funcion eliminarReseña:
+    -Falta crearla
+    -Agregar verificacion si el usuario es admin o no
+    -Usar funcion buscarPelicula para poder encontrar la pelicula por nombre
+    -Agregar confirmacion de eliminacion como ultimo paso
+    |_Se deberia eliminar la pelicula, pero tambien eliminar la reseñas hechas a la pelicula actualizando las listas correspondientes
