@@ -1790,8 +1790,8 @@ listaUsuarios = [
         "email": "user50@example.com",
         "img": "",
         "cantidad_reseñas": 11,
-        "contraseña": "contraseña50",
-            "rol": "user"
+        "contraseña": "clave",
+        "rol": "user"
     },
     {
         "id": -1,

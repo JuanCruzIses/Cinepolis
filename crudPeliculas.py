@@ -165,6 +165,8 @@ def eliminarPelicula():
 
 
 def crudPeliculas(usuario):
+    if usuario != 0 and usuario != None:
+        print(f'Usuario: {usuario["usuario"]} \nReseñas: {usuario["cantidad_reseñas"]}')
     print("")
     print("----- CRUD de Películas -----")
     print("1. Crear película \n2. Editar película \n3. Eliminar película \n4. Mostrar películas \n5. Volver al menú principal")
@@ -182,6 +184,7 @@ def crudPeliculas(usuario):
         else:
             print("Opción inválida. Por favor, seleccione una opción del 1 al 5.")
         print(" ")
+        
         print("1. Crear película \n2. Editar película \n3. Eliminar película \n4. Mostrar películas \n5. Volver al menú principal")
         opcionElegida = int(input("Seleccione la opción a ejecutar: "))
         print(" ")

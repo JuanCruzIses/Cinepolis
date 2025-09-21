@@ -43,12 +43,80 @@ def iniciarSesion():
         if listaUsuarios[i]["email"] == email:
             if listaUsuarios[i]["contraseña"] == contraseña:
                 print("Inicio de sesion exitoso, bienvenido " + listaUsuarios[i]["usuario"])
+                print("")
                 return listaUsuarios[i]
             else:
                 print("Contraseña incorrecta.")
+                print("")
                 return 0
 
-def editarUsuario():
+def editarUsuario(usuario):
+    nombre_usuario = usuario["usuario"]
+
+    usuario_obj = None
+    for u in listaUsuarios:
+        if u["usuario"].lower() == nombre_usuario.lower():
+            usuario_obj = u
+
+    if usuario_obj is None:
+        print("No se encontro un usuario con ese nombre")
+        return
+
+    print("Deja el campo vacio si no queres cambiarlo")
+    nuevo_usuario = input(f"Nuevo nombre de usuario (actual: {usuario_obj['usuario']}): ")
+    nuevo_email = input(f"Nuevo email (actual: {usuario_obj['email']}): ")
+    nueva_img = input(f"Nueva url de imagen (actual: {usuario_obj['img']}): ")
+    nueva_contraseña = input("Nueva contraseña: ")
+
+    if nuevo_usuario != "":
+        usuario_obj["usuario"] = nuevo_usuario
+    if nuevo_email != "":
+        usuario_obj["email"] = nuevo_email
+    if nueva_img != "":
+        usuario_obj["img"] = nueva_img
+    if nueva_contraseña != "":
+        usuario_obj["contraseña"] = nueva_contraseña
+
+    print("El usuario ha sido actualizado correctamente")
+    print("")
+    return
+
+def eliminarUsuario(usuario):
+    usuario_eliminar = usuario["usuario"]
+    
+    usuario_obj = ""
+    for u in listaUsuarios:
+        if u["usuario"].lower() == usuario_eliminar.lower():
+            usuario_obj = u
+            break
+
+    if not usuario_obj:
+        print("No se encontró un usuario con ese nombre.")
+        print("")
+        return
+    else:
+        print(f"El usuario '{usuario_eliminar}' será eliminado.")
+        confirmacion = input("Para confirmar la eliminacion responda 'Si' o 'No': ")
+        while confirmacion.lower() != "si" and confirmacion.lower() != "no":
+            confirmacion = input("Respuesta inválida. Responda 'Si' o 'No': ")
+        if confirmacion.lower() == "si":
+            i = 0
+            while i < len(listaResenas):
+                if listaResenas[i]["usuario"].lower() == usuario_eliminar.lower():
+                    del listaResenas[i]
+                else:
+                    i += 1
+
+            listaUsuarios.remove(usuario_obj)
+
+            print(f"El usuario '{usuario_eliminar}' y sus reseñas han sido eliminados correctamente.")
+            usuario = 0
+            return usuario
+        else:
+            print("Operación de eliminación cancelada.")
+            return
+
+def editarUsuarioAdmin():
     nombre_usuario = input("Ingrese el nombre de usuario que desea editar: ")
 
     usuario_obj = None
@@ -76,9 +144,10 @@ def editarUsuario():
         usuario_obj["contraseña"] = nueva_contraseña
 
     print("El usuario ha sido actualizado correctamente")
+    print("")
     return
 
-def eliminarUsuario():
+def eliminarUsuarioAdmin():
 
     usuario_eliminar = input("Ingrese el nombre de usuario a eliminar: ")
     
@@ -90,6 +159,7 @@ def eliminarUsuario():
 
     if not usuario_obj:
         print("No se encontró un usuario con ese nombre.")
+        print("")
         return
     
     i = 0
@@ -112,32 +182,61 @@ def mostrarUsuarios():
 
     for u in listaUsuarios:
         print("ID:", u["id"], "| Usuario:", u["usuario"], "| Email:", u["email"], "| Img:", u["img"], "| Reseñas:", u["cantidad_reseñas"])
+    print("")
     return
 
 def crudUsuarios(usuario):
-    print(" ")
-    print("----- CRUD de Usuarios -----")
-    print("1. Crear usuario \n2. Iniciar Sesion \n3. Editar usuario \n4. Eliminar usuario \n5. Mostrar usuarios \n6. Volver al menu principal")
-    opcion = int(input("Seleccione la opcion: "))
-    while opcion != 6:
-        if opcion == 1:
-            crearUsuario()
-        elif opcion == 2:
-            usuario = iniciarSesion()
-        elif opcion == 3:
-            editarUsuario()
-        elif opcion == 4:
-            eliminarUsuario()
-        elif opcion == 5:
-            mostrarUsuarios()
+    if usuario != 0 and usuario != None:
+        print(f'Usuario: {usuario["usuario"]} \nReseñas: {usuario["cantidad_reseñas"]}')
+    print("")
+    opcion = 0
+    while opcion != 4:
+        print("----- CRUD de Usuarios -----")
+        #Funciones disponibles si el USUARIO NO INICIO SESION
+        if usuario == 0 or usuario == None:
+            print("1. Crear usuario \n2. Iniciar Sesion \n3. Mostrar usuarios \n4. Volver al menu principal")
+            opcion = int(input("Seleccione la opcion: "))
+            if opcion == 1:
+                crearUsuario()
+            elif opcion == 2:
+                usuario = iniciarSesion()
+            elif opcion == 3:
+                mostrarUsuarios()
+            else:
+                print("Opción inválida")
+        #Funciones disponibles si el USUARIO INICIO SESION
         else:
-            print("Opción inválida")
-        
-        print(" ")
-        print("1. Crear usuario \n2. Iniciar Sesion \n3. Editar usuario \n4. Eliminar usuario \n5. Mostrar usuarios \n6. Volver al menu principal")
-        opcion = int(input("Seleccione la opcion: "))
-        print("")
+            #Funciones disponibles si el USUARIO TIENE ROL 'ADMIN'
+            if usuario["rol"] == "admin":
+                print("1. Editar usuario \n2. Eliminar usuario \n3. Mostrar usuarios \n4. Volver al menu principal")
+                opcion = int(input("Seleccione la opcion: "))
+                while opcion != 4:
+                    if opcion == 1:
+                        editarUsuarioAdmin()
+                    elif opcion == 2:
+                        eliminarUsuarioAdmin()
+                    elif opcion == 3:
+                        mostrarUsuarios()
+                    else:
+                        print("Opción inválida")
+                    
+                    print("1. Editar usuario \n2. Eliminar usuario \n3. Mostrar usuarios \n4. Volver al menu principal")
+                    opcion = int(input("Seleccione la opcion: "))
+            #Funciones disponibles si el USUARIO TIENE ROL 'USER'            
+            else:
+                print("1. Editar usuario \n2. Eliminar usuario \n3. Volver al menu principal")
+                opcion = int(input("Seleccione la opcion: "))
+                while opcion != 3:
+                    if opcion == 1:
+                        editarUsuario(usuario)
+                    elif opcion == 2:
+                        eliminarUsuario(usuario)
+                    else:
+                        print("Opción inválida")
+                    
+                    print("1. Editar usuario \n2. Eliminar usuario \n3. Volver al menu principal")
+                    opcion = int(input("Seleccione la opcion: "))
+                return usuario
 
-    if usuario:
-        return usuario
-    return
+    # if usuario != 0 and usuario != None:
+    return usuario

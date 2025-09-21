@@ -13,19 +13,24 @@ def menuPrincipal():
     print("1. Peliculas \n2. Usuarios \n3. Reseñas \n4. Salir")
     opcion = int(input("Seleccione la opcion: "))
     while opcion != 4:
-        if usuario != 0:
+        print(usuario)
+        if usuario != 0 and usuario != None:
             print(f'Usuario: {usuario["usuario"]} \nReseñas: {usuario["cantidad_reseñas"]}')
-
         if opcion == 1:
+            os.system('cls')
             crudPeliculas(usuario)
         elif opcion == 2:
+            os.system('cls')
             usuario = crudUsuarios(usuario)
         elif opcion == 3:
+            os.system('cls')
             crudResenas(usuario)
         else:
             print("Opcion invalida")
         os.system('cls')
         
+        if usuario != 0 and usuario != None:
+            print(f'Usuario: {usuario["usuario"]} \nReseñas: {usuario["cantidad_reseñas"]}')
         print("\n1. Peliculas \n2. Usuarios \n3. Reseñas \n4. Salir")
         opcion = int(input("Seleccione la opcion: "))
         print("")

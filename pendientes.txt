@@ -48,27 +48,27 @@ Funcion iniciarSesion:
 	|_Si no encuentra ninguno, indicarlo en un mensaje
 
 Funcion editarUsuario:
-	-Solicitar mail y contraseña para acceder a la edición del usuario
-	|_Usar filter y lamba para buscar un mail que coincida en la base de datos
-		|_Si hay un usuario encontrado, verificar que la contraseña ingresada coincida
+	-Validar que el usuario haya iniciado sesion
+	|_Utilizar la informacion de usuario para realizar la busqueda
+
+Funcion cerrarSesion:
+	-Crear funcion
 
 Funcion eliminarUsuario:
 	-Dos tipos de acceso
 		|_Acceso usuario con rol "admin" --> puede eliminar directo cualquier usuario ingresando el mail
 		|_Acceso usuario con rol "user" --> (idem lógica de editar usuario):
-			-Usar filter y lamba para buscar un mail que coincida en la base de datos
-			-Si hay un usuario encontrado, verificar que la contraseña ingresada coincida
-			-Si la contraseña coincide, preguntar confirmación de eliminación de cuenta
-			|_Si confirma usar el método delete listaUsuarios[numeroIndiceCorrespondiente] u otro indicador
+			-Solicitar confirmación de eliminación de cuenta
+			|_Si confirma se debe hacer limpieza del valor almacenado en la variable general usuario, ya que el usuario ya no existe por lo tanto no puede seguir logueado (PENDIENTE JC)
 
 
 -- CRUD PELICULAS --
 Funcion editarPelicula:
-    -Implementar la funcion buscarPelicula como parte del proceso de edicion de pelicula
+    -Implementar la funcion buscarPelicula como parte del proceso de edicion de pelicula (HECHO)
 
 Funcion eliminarPeliculas:
     -Agregar función de eliminar reseña (se debe comprobar que sea un usuario con "rol": "admin")
-    -Implementar la funcion buscarPelicula como parte del proceso de eliminacion de pelicula
+    -Implementar la funcion buscarPelicula como parte del proceso de eliminacion de pelicula (HECHO)
 
 -- CRUD RESEÑAS --
 Funcion eliminarReseña:

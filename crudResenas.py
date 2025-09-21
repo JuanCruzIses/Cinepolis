@@ -83,6 +83,8 @@ def mostrarResenas():
         print("")
 
 def crudResenas(usuario):
+    if usuario != 0 and usuario != None:
+        print(f'Usuario: {usuario["usuario"]} \nReseñas: {usuario["cantidad_reseñas"]}')
     print("")
     print("----- Gestion de Reseñas -----")
     print("1. Crear reseña \n2. Mostrar reseñas \n3. Volver al menu principal")
