@@ -3,6 +3,8 @@ Consideraciones:
   |_Estos datos pueden ser usados para procesos de verificacion de rol, conocer cantidad de reseñas, entre otros procedimientos.
 
 == PENDIENTES ==
+Documentar bien todo el codigo
+
 Aplicar logica en los modulos CRUD para que diferencie el acceso a determinadas funciones si el usuario no esta logueado
 Si el usuario NO esta logueado
 |_No debe poder crear reseñas
@@ -51,13 +53,6 @@ Funcion eliminarUsuario:
 
 
 -- CRUD PELICULAS --
-Crear funcion buscarPelicula:
-    -Solicitar al usuario que ingrese el nombre de la pelicula
-    -Usar expresiones regulares (debe buscar similitudes por palabra, ejemplo: "el " = "El padrino", "El transportador", "El dia despues de mañana")
-	    |_Combinar con map y funciones lambda para generar la lista de coincidencias
-        |_Aplicar un bucle for en la lista de coincidencias y que devuelva un listado con selector por números 1,2,3 (ejemplo: Si busca "Harry potter" debería devolver una lista con "Harry potter I", "Harry potter II", "Harry potter III", etc)
-        |_A partir de la eleccion del usuario que retorne el diccionario de la pelicula elegida
-
 Funcion editarPelicula:
     -Implementar la funcion buscarPelicula como parte del proceso de edicion de pelicula
 
@@ -67,7 +62,6 @@ Funcion eliminarPeliculas:
 
 -- CRUD RESEÑAS --
 Funcion eliminarReseña:
-    -Falta crearla
     -Agregar verificacion si el usuario es admin o no
     -Usar funcion buscarPelicula para poder encontrar la pelicula por nombre
     -Agregar confirmacion de eliminacion como ultimo paso
