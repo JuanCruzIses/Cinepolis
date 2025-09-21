@@ -5,6 +5,16 @@ Consideraciones:
 == PENDIENTES ==
 Documentar bien todo el codigo
 
+-- LOGICA GENERAL DEL PROGRAMA --
+
+Crear funcion buscarPelicula: (HECHO)
+    -Solicitar al usuario que ingrese el nombre de la pelicula
+    -Usar expresiones regulares (debe buscar similitudes por palabra, ejemplo: "el " = "El padrino", "El transportador", "El dia despues de mañana")
+	    |_Combinar con map y funciones lambda para generar la lista de coincidencias
+        |_Aplicar un bucle for en la lista de coincidencias y que devuelva un listado con selector por números 1,2,3 (ejemplo: Si busca "Harry potter" debería devolver una lista con "Harry potter I", "Harry potter II", "Harry potter III", etc)
+        |_A partir de la eleccion del usuario que retorne el diccionario de la pelicula elegida
+
+
 Aplicar logica en los modulos CRUD para que diferencie el acceso a determinadas funciones si el usuario no esta logueado
 Si el usuario NO esta logueado
 |_No debe poder crear reseñas

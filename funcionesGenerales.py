@@ -1,14 +1,6 @@
-
-# Crear funcion buscarPelicula:
-#     -Solicitar al usuario que ingrese el nombre de la pelicula
-#     -Usar expresiones regulares (debe buscar similitudes por palabra, ejemplo: "el " = "El padrino", "El transportador", "El dia despues de mañana")
-# 	    |_Combinar con map y funciones lambda para generar la lista de coincidencias
-#         |_Aplicar un bucle for en la lista de coincidencias y que devuelva un listado con selector por números 1,2,3 (ejemplo: Si busca "Harry potter" debería devolver una lista con "Harry potter I", "Harry potter II", "Harry potter III", etc)
-#         |_A partir de la eleccion del usuario que retorne el diccionario de la pelicula elegida
-
 from db import listaPeliculas
-import re
 from Levenshtein import distance
+import re
 
 """
     Funcionamiento general:
@@ -24,30 +16,31 @@ from Levenshtein import distance
     Usamos re.IGNORECASE para que no diferencie entre mayusculas y minusculas
 """
 def buscarPelicula():
-    peliculaABuscar = input("Ingrese el nombre de la película a buscar: ").strip().lower()
+    peliculaABuscar = input("Ingrese el nombre de la película a buscar o 0 para cancelar la operacion").strip().lower()
     while peliculaABuscar == "":
         peliculaABuscar = input("La busqueda no puede estar vacía. Ingrese el nombre de la película a buscar: ").strip().lower()
     patron = re.compile(re.escape(peliculaABuscar), re.IGNORECASE)
     resultados = [p for p in listaPeliculas if patron.search(p["titulo"].lower())]
 
-    if not resultados:
-        umbral = 4
-        resultados = [p for p in listaPeliculas if distance(peliculaABuscar, p["titulo"].lower()) <= umbral]
-    
-    
-    if resultados:
-        print("Resultados encontrados:")
-        for i in range(len(resultados)):
-            print(f"{i+1}. {resultados[i]['titulo']}")
-        print("")
-        numeroPeliculaElegida = int(input("Seleccione el número de la película deseada: "))
-        while numeroPeliculaElegida < 1 or numeroPeliculaElegida > len(resultados):
-            numeroPeliculaElegida = int(input("Número inválido. Seleccione un número de la lista brindada: "))
-        seleccionada = resultados[numeroPeliculaElegida - 1]
-        print("Película seleccionada:", seleccionada)
-        return seleccionada
-    
-    else:
-        print("No se encontraron coincidencias.")
-        return 0
+    if peliculaABuscar != "0":
+        if not resultados:
+            umbral = 4
+            resultados = [p for p in listaPeliculas if distance(peliculaABuscar, p["titulo"].lower()) <= umbral]
+        
+        
+        if resultados:
+            print("Resultados encontrados:")
+            for i in range(len(resultados)):
+                print(f"{i+1}. {resultados[i]['titulo']}")
+            print("")
+            numeroPeliculaElegida = int(input("Seleccione el número de la película deseada o 0 para cancelar la operacion: "))
+            while numeroPeliculaElegida < 0 or numeroPeliculaElegida > len(resultados):
+                numeroPeliculaElegida = int(input("Número inválido. Seleccione un número de la lista brindada: "))
+            if numeroPeliculaElegida != 0:
+                seleccionada = resultados[numeroPeliculaElegida - 1]
+                return seleccionada
+        else:
+            print("No se encontraron coincidencias.")
+            return False
+    return "0"
 

@@ -1,7 +1,8 @@
+#Imports necesarios para el CRUD 
+from db import listaPeliculas
+from funcionesGenerales import buscarPelicula 
 import os
 
-#Import de lista de peliculas contenido en db.py
-from db import listaPeliculas
 # ---> Funciones para la gestión de películas (CRUD) <---
 """
 Gestión de Películas (CRUD)
@@ -84,7 +85,7 @@ def mostrarPeliculas():
         sinopsis = pelicula["sinopsis"]
         poster = pelicula["poster"]
         
-        print(f"ID: {id} \nTitulo: {titulo} \nEstreno: {estreno} \nTitulo: {titulo} \nDirector: {director} \nGeneros: {generos} \nSinopsis: {sinopsis} \nPoster: {poster}   " )
+        print(f"ID: {id} \nTitulo: {titulo} \nEstreno: {estreno} \nDirector: {director} \nGeneros: {generos} \nSinopsis: {sinopsis} \nPoster: {poster}   " )
         print("")
         print("-------------------------------")
         print("")
@@ -93,75 +94,74 @@ def mostrarPeliculas():
 def editarPelicula():
     print("")
     print("----- Editar películas -----")
-    pelicula_a_editar = input('Ingrese el título de la película que desea editar o "0" para salir: ')
+    pelicula_a_editar = buscarPelicula()
 
     while pelicula_a_editar != "0":
-        peliculaEncontrada = False
+        print("Editando la película:", pelicula_a_editar["titulo"])
+
+        if pelicula_a_editar == False:
+            print("La película ingresada no fue encontrada.")
+            pelicula_a_editar = input('Ingrese el título de otra película a editar o "0" para salir: ')
+
+        nuevo_titulo = input("Nuevo título (Enter para mantener el actual): ")
+        if nuevo_titulo != "":
+            pelicula_a_editar["titulo"] = nuevo_titulo
+
+        nuevo_estreno = input("Nuevo año de estreno (Enter para mantener el actual): ")
+        if nuevo_estreno != "":
+            if nuevo_estreno.isdigit():
+                pelicula_a_editar["estreno"] = int(nuevo_estreno)
+            else:
+                print("El año ingresado no es válido. Se mantiene el anterior.")
+
+        nuevo_director = input("Nuevo director (Enter para mantener el actual): ")
+        if nuevo_director != "":
+            pelicula_a_editar["director"] = nuevo_director
+
+        nuevos_generos = input("Nuevos géneros (separados por comas, Enter para mantener los actuales): ")
+        if nuevos_generos != "":
+            pelicula_a_editar["generos"] = nuevos_generos.split(",")
+
+        nueva_sinopsis = input("Nueva sinopsis (Enter para mantener la actual): ")
+        if nueva_sinopsis != "":
+            pelicula_a_editar["sinopsis"] = nueva_sinopsis
+
+        nuevo_poster = input("Nueva URL del póster (Enter para mantener la actual): ")
+        if nuevo_poster != "":
+            pelicula_a_editar["poster"] = nuevo_poster
+
         for pelicula in listaPeliculas:
-            if pelicula["titulo"].lower() == pelicula_a_editar.lower():
-                peliculaEncontrada = True
-                print("Editando la película:", pelicula["titulo"])
-
-                nuevo_titulo = input("Nuevo título (Enter para mantener el actual): ")
-                if nuevo_titulo != "":
-                    pelicula["titulo"] = nuevo_titulo
-
-                nuevo_estreno = input("Nuevo año de estreno (Enter para mantener el actual): ")
-                if nuevo_estreno != "":
-                    if nuevo_estreno.isdigit():
-                        pelicula["estreno"] = int(nuevo_estreno)
-                    else:
-                        print("El año ingresado no es válido. Se mantiene el anterior.")
-
-                nuevo_director = input("Nuevo director (Enter para mantener el actual): ")
-                if nuevo_director != "":
-                    pelicula["director"] = nuevo_director
-
-                nuevos_generos = input("Nuevos géneros (separados por comas, Enter para mantener los actuales): ")
-                if nuevos_generos != "":
-                    pelicula["generos"] = nuevos_generos.split(",")
-
-                nueva_sinopsis = input("Nueva sinopsis (Enter para mantener la actual): ")
-                if nueva_sinopsis != "":
-                    pelicula["sinopsis"] = nueva_sinopsis
-
-                nuevo_poster = input("Nueva URL del póster (Enter para mantener la actual): ")
-                if nuevo_poster != "":
-                    pelicula["poster"] = nuevo_poster
-
-                print("La película fue actualizada correctamente.")
-                print("")
-
-        if peliculaEncontrada == False:
-            print("La película '" + pelicula_a_editar + "' no fue encontrada.")
+            if pelicula["titulo"].lower() == pelicula_a_editar["titulo"].lower():
+                pelicula = pelicula_a_editar
+        
+        print("La película fue actualizada correctamente.")
+        print("")
 
         pelicula_a_editar = input('Ingrese el título de otra película a editar o "0" para salir: ')
+    
 
 #----> Eliminar película <----
 def eliminarPelicula():
     print("")
     print("----- Eliminar películas -----")
-    pelicula_a_eliminar = input('Ingrese el título de la película que desea eliminar o "0" para salir: ')
+    pelicula_a_eliminar = buscarPelicula()
 
     while pelicula_a_eliminar != "0":
-        peliculaEncontrada = False
-        for pelicula in listaPeliculas:
-            if pelicula["titulo"].lower() == pelicula_a_eliminar.lower():
-                peliculaEncontrada = True
-                print(f'¿Seguro que desea eliminar la película {pelicula["titulo"]}?')
-                confirmacion = input("Responda 'Si' o 'No': ")
-                while confirmacion.lower() != "si" and confirmacion.lower() != "no":
-                    confirmacion = input("Respuesta inválida. Responda 'Si' o 'No': ")
-                if confirmacion.lower() == "si":
-                    listaPeliculas.remove(pelicula)
-                    print("La película fue eliminada correctamente.")
-                else:
-                    print("Operación de eliminación cancelada.")
+        peliculaEncontrada = True
+        print(f'¿Seguro que desea eliminar la película {pelicula_a_eliminar["titulo"]}?')
+        confirmacion = input("Responda 'Si' o 'No': ")
+        while confirmacion.lower() != "si" and confirmacion.lower() != "no":
+            confirmacion = input("Respuesta inválida. Responda 'Si' o 'No': ")
+        if confirmacion.lower() == "si":
+            listaPeliculas.remove(pelicula_a_eliminar)
+            print("La película fue eliminada correctamente.")
+        else:
+            print("Operación de eliminación cancelada.")
 
         if peliculaEncontrada == False:
-            print("La película '" + pelicula_a_eliminar + "' no fue encontrada.")
+            print("La película '" + pelicula_a_eliminar["titulo"] + "' no fue encontrada.")
 
-        pelicula_a_eliminar = input('Ingrese el título de otra película a eliminar o "0" para salir: ')
+        pelicula_a_eliminar = buscarPelicula()
 
 
 def crudPeliculas(usuario):

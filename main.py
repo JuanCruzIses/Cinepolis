@@ -30,8 +30,6 @@ def menuPrincipal():
         opcion = int(input("Seleccione la opcion: "))
         print("")
 
-from funcionesGenerales import buscarPelicula 
 
-buscarPelicula()
 # Ejecutar menu principal
-# menuPrincipal()
+menuPrincipal()
