@@ -39,5 +39,3 @@ def buscarPelicula():
         print("Operación cancelada.")
         return "0"
 
-buscarPelicula()
-

@@ -190,18 +190,16 @@ def crudUsuarios(usuario):
         print(f'Usuario: {usuario["usuario"]} \nReseñas: {usuario["cantidad_reseñas"]}')
     print("")
     opcion = 0
-    while opcion != 4:
+    while opcion != 3:
         print("----- CRUD de Usuarios -----")
         #Funciones disponibles si el USUARIO NO INICIO SESION
         if usuario == 0 or usuario == None:
-            print("1. Crear usuario \n2. Iniciar Sesion \n3. Mostrar usuarios \n4. Volver al menu principal")
+            print("1. Registrarse \n2. Iniciar Sesion \n3. Volver al menu principal")
             opcion = int(input("Seleccione la opcion: "))
             if opcion == 1:
                 crearUsuario()
             elif opcion == 2:
                 usuario = iniciarSesion()
-            elif opcion == 3:
-                mostrarUsuarios()
             else:
                 print("Opción inválida")
         #Funciones disponibles si el USUARIO INICIO SESION
