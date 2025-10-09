@@ -204,7 +204,7 @@ def mostrarUsuarios():
         return
 
     for u in listaUsuarios:
-        print("ID:", u["id"], "| Usuario:", u["usuario"], "| Email:", u["email"], "| Img:", u["img"], "| Reseñas:", u["cantidad_reseñas"])
+        print("Usuario:", u["usuario"], "| Email:", u["email"], "| Img:", u["img"], "| Reseñas:", u["cantidad_reseñas"])
     print("")
     return
 
@@ -217,14 +217,14 @@ def crudUsuarios(usuario):
         print("----- CRUD de Usuarios -----")
         #Funciones disponibles si el USUARIO NO INICIO SESION
         if usuario == 0 or usuario == None:
-            print("1. Registrarse \n2. Iniciar Sesion \n3. Volver al menu principal")
+            print("1. Registrarse \n2. Iniciar Sesion \n3. Mostrar usuarios \n4. Volver al menu principal")
             opcion = int(input("Seleccione la opcion: "))
             if opcion == 1:
                 crearUsuario()
             elif opcion == 2:
                 usuario = iniciarSesion()
             elif opcion == 3:
-                return usuario
+                mostrarUsuarios()
             else:
                 print("Opción inválida")
         #Funciones disponibles si el USUARIO INICIO SESION
@@ -246,7 +246,7 @@ def crudUsuarios(usuario):
                     else:
                         print("Opción inválida")
                     
-                    print("1. Editar usuario \n2. Eliminar usuario \n3. Mostrar usuarios \n4. Cerrar sesión \n5. Volver al menu principal")
+                    print("1. Editar usuario \n2. Eliminar usuario \n3. Mostrar usuarios \n4. Volver al menu principal")
                     opcion = int(input("Seleccione la opcion: "))
             #Funciones disponibles si el USUARIO TIENE ROL 'USER'            
             else:
@@ -262,10 +262,14 @@ def crudUsuarios(usuario):
                     elif opcion == 3:
                         usuario = cerrarSesion(usuario)
                         return usuario
+                    elif opcion == 4:
+                        return
                     else:
                         print("Opción inválida")
                     
-                    print("1. Editar usuario \n2. Eliminar usuario \n3. Cerrar sesión \n4. Volver al menu principal")
+                    print("1. Editar usuario \n2. Eliminar usuario \n3. Volver al menu principal")
                     opcion = int(input("Seleccione la opcion: "))
+                return usuario
 
+    # if usuario != 0 and usuario != None:
     return usuario

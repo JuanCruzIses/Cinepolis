@@ -168,24 +168,43 @@ def crudPeliculas(usuario):
     if usuario != 0 and usuario != None:
         print(f'Usuario: {usuario["usuario"]} \nReseñas: {usuario["cantidad_reseñas"]}')
     print("")
-    print("----- CRUD de Películas -----")
-    print("1. Crear película \n2. Editar película \n3. Eliminar película \n4. Mostrar películas \n5. Volver al menú principal")
-    opcionElegida = int(input("Seleccione la opción a ejecutar:"))
-
+    opcionElegida = 0
     while opcionElegida != 5:
-        if opcionElegida == 1:
-            crearPelicula()
-        elif opcionElegida == 2:
-            editarPelicula()
-        elif opcionElegida == 3:
-            eliminarPelicula()
-        elif opcionElegida == 4:
-            mostrarPeliculas()
+        print("----- CRUD de Películas -----")
+        #Funciones disponibles si el USUARIO NO INICIO SESION
+        if usuario == 0 or usuario == None:
+            print("Debes iniciar sesión para acceder a las funciones de películas.")
+            opcionElegida = 5
+        #Funciones disponibles si el USUARIO INICIO SESION
         else:
-            print("Opción inválida. Por favor, seleccione una opción del 1 al 5.")
-        print(" ")
-        
-        print("1. Crear película \n2. Editar película \n3. Eliminar película \n4. Mostrar películas \n5. Volver al menú principal")
-        opcionElegida = int(input("Seleccione la opción a ejecutar: "))
+            #Funciones disponibles si el USUARIO TIENE ROL 'ADMIN'
+            if usuario["rol"] == "admin":
+                print("1. Crear película \n2. Editar película \n3. Eliminar película \n4. Mostrar películas \n5. Volver al menú principal")
+                opcionElegida = int(input("Seleccione la opción a ejecutar:"))
+
+                if opcionElegida == 1:
+                    crearPelicula()
+                elif opcionElegida == 2:
+                    editarPelicula()
+                elif opcionElegida == 3:
+                    eliminarPelicula()
+                elif opcionElegida == 4:
+                    mostrarPeliculas()
+                else:
+                    print("Opción inválida. Por favor, seleccione una opción del 1 al 5.")
+                print(" ")
+            
+            #Funciones disponibles si el USUARIO TIENE ROL 'USER'            
+            else:
+                print("1. Buscar películas \n2. Mostrar películas \n3. Volver al menú principal")            
+                opcionElegida = int(input("Seleccione la opción a ejecutar: "))
+
+                if opcionElegida == 1:
+                    buscarPelicula()
+                elif opcionElegida == 2:
+                    mostrarPeliculas()
+                else:
+                    print("Opción inválida. Por favor, seleccione una opción del 1 al 5.")
+                print(" ")
         print(" ")
     return
