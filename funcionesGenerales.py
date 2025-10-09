@@ -24,7 +24,7 @@ def buscarPelicula():
 
     if peliculaABuscar != "0":
         if not resultados:
-            umbral = 4
+            umbral = 2
             resultados = [p for p in listaPeliculas if distance(peliculaABuscar, p["titulo"].lower()) <= umbral]
         
         

@@ -35,23 +35,21 @@ Si el usuario NO tiene rol admin
 Ejemplo: si el usuario no inicia sesion, no deberia poder acceder a crear reseñas, editar reseña, entre otras.
 
 -- CRUD USUARIOS --
-Funcion crearUsuarios:
+Funcion crearUsuarios: (HECHO)
 	-Validar que el mail no se encuentre ya registrado
 	-Validar que la contraseña tenga 8 caracteres o mas
-	-Validar que la contraseña tenga al menos 5 letras y 3 numeros
-	|_Usar expresiones regulares para esto
 	-Agregar campo de confirmar contraseña (confirmarContrasena) y comprobar que sea igual a la contraseña ingresada
 
 
-Funcion iniciarSesion:
+Funcion iniciarSesion: (HECHO)
 	-Usar filter y lambda para buscar un usuario que coincida con el mail
 	|_Si no encuentra ninguno, indicarlo en un mensaje
 
-Funcion editarUsuario:
+Funcion editarUsuario: (HECHO)
 	-Validar que el usuario haya iniciado sesion
 	|_Utilizar la informacion de usuario para realizar la busqueda
 
-Funcion cerrarSesion:
+Funcion cerrarSesion: (HECHO)
 	-Crear funcion
 
 Funcion eliminarUsuario:
