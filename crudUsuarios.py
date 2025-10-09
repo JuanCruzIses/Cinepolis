@@ -102,39 +102,38 @@ def editarUsuario(usuario):
     return
 
 def eliminarUsuario(usuario):
-    usuario_eliminar = usuario["usuario"]
-    
-    usuario_obj = ""
-    for u in listaUsuarios:
-        if u["usuario"].lower() == usuario_eliminar.lower():
-            usuario_obj = u
-            break
-
-    if not usuario_obj:
-        print("No se encontró un usuario con ese nombre.")
+    if usuario == 0 or usuario == None:
+        print("Debe iniciar sesión para eliminar su cuenta")
         print("")
-        return
+        return usuario
+    
+    usuario_obj = list(filter(lambda u: u["id"] == usuario["id"], listaUsuarios))
+    
+    if not usuario_obj:
+        print("Error: No se encontró la información del usuario")
+        print("")
+        return usuario
+
+    print(f"El usuario '{usuario['usuario']}' será eliminado.")
+    confirmacion = input("Para confirmar la eliminacion responda 'Si' o 'No': ")
+    while confirmacion.lower() != "si" and confirmacion.lower() != "no":
+        confirmacion = input("Respuesta inválida. Responda 'Si' o 'No': ")
+
+    if confirmacion.lower() == "si":
+        i = 0
+        while i < len(listaResenas):
+            if listaResenas[i]["usuario"].lower() == usuario["usuario"].lower():
+                del listaResenas[i]
+            else:
+                i += 1
+    
+        listaUsuarios.remove(usuario_obj[0])
+        print(f"El usuario '{usuario['usuario']}' y sus reseñas han sido eliminados correctamente.")
+        
+        return 0
     else:
-        print(f"El usuario '{usuario_eliminar}' será eliminado.")
-        confirmacion = input("Para confirmar la eliminacion responda 'Si' o 'No': ")
-        while confirmacion.lower() != "si" and confirmacion.lower() != "no":
-            confirmacion = input("Respuesta inválida. Responda 'Si' o 'No': ")
-        if confirmacion.lower() == "si":
-            i = 0
-            while i < len(listaResenas):
-                if listaResenas[i]["usuario"].lower() == usuario_eliminar.lower():
-                    del listaResenas[i]
-                else:
-                    i += 1
-
-            listaUsuarios.remove(usuario_obj)
-
-            print(f"El usuario '{usuario_eliminar}' y sus reseñas han sido eliminados correctamente.")
-            usuario = 0
-            return usuario
-        else:
-            print("Operación de eliminación cancelada.")
-            return
+        print("Operación de eliminación cancelada.")
+        return usuario
 
 def cerrarSesion(usuario):
     if usuario == 0 or usuario == None:
@@ -178,30 +177,24 @@ def editarUsuarioAdmin():
     return
 
 def eliminarUsuarioAdmin():
-
-    usuario_eliminar = input("Ingrese el nombre de usuario a eliminar: ")
+    email = input("Ingrese el email del usuario a eliminar: ")
     
-    usuario_obj = ""
-    for u in listaUsuarios:
-        if u["usuario"].lower() == usuario_eliminar.lower():
-            usuario_obj = u
-            break
-
+    usuario_obj = list(filter(lambda u: u["email"] == email, listaUsuarios))
+    
     if not usuario_obj:
-        print("No se encontró un usuario con ese nombre.")
+        print("No se encontró un usuario con ese email.")
         print("")
         return
-    
+
     i = 0
     while i < len(listaResenas):
-        if listaResenas[i]["usuario"].lower() == usuario_eliminar.lower():
+        if listaResenas[i]["usuario"].lower() == usuario_obj[0]["usuario"].lower():
             del listaResenas[i]
         else:
             i += 1
 
-    listaUsuarios.remove(usuario_obj)
-
-    print(f"El usuario '{usuario_eliminar}' y sus reseñas han sido eliminados correctamente.")
+    listaUsuarios.remove(usuario_obj[0])
+    print(f"El usuario '{usuario_obj[0]['usuario']}' y sus reseñas han sido eliminados correctamente.")
     return
 
 def mostrarUsuarios():
@@ -224,15 +217,13 @@ def crudUsuarios(usuario):
         print("----- CRUD de Usuarios -----")
         #Funciones disponibles si el USUARIO NO INICIO SESION
         if usuario == 0 or usuario == None:
-            print("1. Crear usuario \n2. Iniciar Sesion \n3. Mostrar usuarios \n4. Volver al menu principal")
+            print("1. Registrarse \n2. Iniciar Sesion \n3. Volver al menu principal")
             opcion = int(input("Seleccione la opcion: "))
             if opcion == 1:
                 crearUsuario()
             elif opcion == 2:
                 usuario = iniciarSesion()
             elif opcion == 3:
-                mostrarUsuarios()
-            elif opcion == 4:
                 return usuario
             else:
                 print("Opción inválida")

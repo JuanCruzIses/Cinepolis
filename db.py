@@ -1344,6 +1344,24 @@ listaPeliculas = [
 #Listado de 50 usuarios (id, usuario, email, img, cantidad_reseñas)
 listaUsuarios = [
     {
+        "id": -1,
+        "usuario": "admin1",
+        "email": "admin1@example.com",
+        "img": "",
+        "cantidad_reseñas": 0,
+        "contraseña": "claveAdmin",
+        "rol": "admin"
+    },
+    {
+        "id": -10,
+        "usuario": "admin2",
+        "email": "admin2@example.com",
+        "img": "",
+        "cantidad_reseñas": 0,
+        "contraseña": "claveAdmin",
+        "rol": "admin"
+    },
+    {
         "id": 1,
         "usuario": "user1",
         "email": "user1@example.com",
@@ -1792,24 +1810,6 @@ listaUsuarios = [
         "cantidad_reseñas": 11,
         "contraseña": "clave",
         "rol": "user"
-    },
-    {
-        "id": -1,
-        "usuario": "admin1",
-        "email": "admin1@example.com",
-        "img": "",
-        "cantidad_reseñas": 0,
-        "contraseña": "claveAdmin",
-        "rol": "admin"
-    },
-    {
-        "id": -10,
-        "usuario": "admin2",
-        "email": "admin2@example.com",
-        "img": "",
-        "cantidad_reseñas": 0,
-        "contraseña": "claveAdmin",
-        "rol": "admin"
     }
 ]
 

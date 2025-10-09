@@ -52,7 +52,7 @@ Funcion editarUsuario: (HECHO)
 Funcion cerrarSesion: (HECHO)
 	-Crear funcion
 
-Funcion eliminarUsuario:
+Funcion eliminarUsuario: (HECHO)
 	-Dos tipos de acceso
 		|_Acceso usuario con rol "admin" --> puede eliminar directo cualquier usuario ingresando el mail
 		|_Acceso usuario con rol "user" --> (idem lógica de editar usuario):
