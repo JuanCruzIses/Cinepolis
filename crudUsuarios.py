@@ -18,7 +18,21 @@ def crearUsuario():
             return
 
     email = input("Ingrese email: ")
+    for i in range(len(listaUsuarios)):
+        if listaUsuarios[i]["email"] == email:
+            print("Este email ya se encuentra registrado.")
+            return
+    
     contraseña = input("Ingrese contraseña: ")
+    while len(contraseña) < 8:
+        print("La contraseña debe tener al menos 8 caracteres")
+        contraseña = input("Ingrese contraseña (mínimo 8 caracteres): ")
+
+    confirmarContrasena = input("Confirme la contraseña: ")
+    while contraseña != confirmarContrasena:
+        print("Las contraseñas no coinciden. Intente nuevamente.")
+        confirmarContrasena = input("Confirme la contraseña: ")
+
     img = input("Ingrese URL de imagen (opcional): ")
 
     nuevo_usuario = {
@@ -27,7 +41,8 @@ def crearUsuario():
         "email": email,
         "img": img,
         "cantidad_reseñas": 0,
-        "contraseña": contraseña
+        "contraseña": contraseña,
+        "rol": "user"
     }
 
     listaUsuarios.append(nuevo_usuario)
@@ -39,43 +54,48 @@ def iniciarSesion():
     email = input("Ingrese su email: ")
     contraseña = input("Ingrese su contraseña: ")
 
-    for i in range(len(listaUsuarios)):
-        if listaUsuarios[i]["email"] == email:
-            if listaUsuarios[i]["contraseña"] == contraseña:
-                print("Inicio de sesion exitoso, bienvenido " + listaUsuarios[i]["usuario"])
-                print("")
-                return listaUsuarios[i]
-            else:
-                print("Contraseña incorrecta.")
-                print("")
-                return 0
+    usuario_encontrado = list(filter(lambda u: u["email"] == email, listaUsuarios))
+    if len(usuario_encontrado) == 0:
+        print("No se encontró un usuario con ese email.")
+        print("")
+        return 0
+    
+    if usuario_encontrado[0]["contraseña"] == contraseña:
+        print("Inicio de sesion exitoso, bienvenido " + usuario_encontrado[0]["usuario"])
+        print("")
+        return usuario_encontrado[0]
+    else:
+        print("Contraseña incorrecta.")
+        print("")
+        return 0
 
 def editarUsuario(usuario):
-    nombre_usuario = usuario["usuario"]
-
-    usuario_obj = None
-    for u in listaUsuarios:
-        if u["usuario"].lower() == nombre_usuario.lower():
-            usuario_obj = u
-
-    if usuario_obj is None:
-        print("No se encontro un usuario con ese nombre")
+    if usuario == 0 or usuario == None:
+        print("Debe iniciar sesión para editar su perfil")
+        print("")
+        return
+    
+    usuario_obj = list(filter(lambda u: u["id"] == usuario["id"], listaUsuarios))
+    
+    if len(usuario_obj) == 0:
+        print("No se encontró un usuario con ese ID")
+        print("")
         return
 
     print("Deja el campo vacio si no queres cambiarlo")
-    nuevo_usuario = input(f"Nuevo nombre de usuario (actual: {usuario_obj['usuario']}): ")
-    nuevo_email = input(f"Nuevo email (actual: {usuario_obj['email']}): ")
-    nueva_img = input(f"Nueva url de imagen (actual: {usuario_obj['img']}): ")
+    nuevo_usuario = input(f"Nuevo nombre de usuario (actual: {usuario_obj[0]['usuario']}): ")
+    nuevo_email = input(f"Nuevo email (actual: {usuario_obj[0]['email']}): ")
+    nueva_img = input(f"Nueva url de imagen (actual: {usuario_obj[0]['img']}): ")
     nueva_contraseña = input("Nueva contraseña: ")
 
     if nuevo_usuario != "":
-        usuario_obj["usuario"] = nuevo_usuario
+        usuario_obj[0]["usuario"] = nuevo_usuario
     if nuevo_email != "":
-        usuario_obj["email"] = nuevo_email
+        usuario_obj[0]["email"] = nuevo_email
     if nueva_img != "":
-        usuario_obj["img"] = nueva_img
+        usuario_obj[0]["img"] = nueva_img
     if nueva_contraseña != "":
-        usuario_obj["contraseña"] = nueva_contraseña
+        usuario_obj[0]["contraseña"] = nueva_contraseña
 
     print("El usuario ha sido actualizado correctamente")
     print("")
@@ -115,6 +135,16 @@ def eliminarUsuario(usuario):
         else:
             print("Operación de eliminación cancelada.")
             return
+
+def cerrarSesion(usuario):
+    if usuario == 0 or usuario == None:
+        print("No hay ninguna sesión iniciada")
+        print("")
+        return 0
+    
+    print(f"Sesión de {usuario['usuario']} cerrada correctamente")
+    print("")
+    return 0
 
 def editarUsuarioAdmin():
     nombre_usuario = input("Ingrese el nombre de usuario que desea editar: ")
@@ -200,41 +230,49 @@ def crudUsuarios(usuario):
                 crearUsuario()
             elif opcion == 2:
                 usuario = iniciarSesion()
+            elif opcion == 3:
+                mostrarUsuarios()
             else:
                 print("Opción inválida")
         #Funciones disponibles si el USUARIO INICIO SESION
         else:
             #Funciones disponibles si el USUARIO TIENE ROL 'ADMIN'
             if usuario["rol"] == "admin":
-                print("1. Editar usuario \n2. Eliminar usuario \n3. Mostrar usuarios \n4. Volver al menu principal")
+                print("1. Editar usuario \n2. Eliminar usuario \n3. Mostrar usuarios \n4. Cerrar sesión \n5. Volver al menu principal")
                 opcion = int(input("Seleccione la opcion: "))
-                while opcion != 4:
+                while opcion != 5:
                     if opcion == 1:
                         editarUsuarioAdmin()
                     elif opcion == 2:
                         eliminarUsuarioAdmin()
                     elif opcion == 3:
                         mostrarUsuarios()
+                    elif opcion == 4:
+                        usuario = cerrarSesion(usuario)
+                        return usuario
                     else:
                         print("Opción inválida")
                     
-                    print("1. Editar usuario \n2. Eliminar usuario \n3. Mostrar usuarios \n4. Volver al menu principal")
+                    print("1. Editar usuario \n2. Eliminar usuario \n3. Mostrar usuarios \n4. Cerrar sesión \n5. Volver al menu principal")
                     opcion = int(input("Seleccione la opcion: "))
             #Funciones disponibles si el USUARIO TIENE ROL 'USER'            
             else:
-                print("1. Editar usuario \n2. Eliminar usuario \n3. Volver al menu principal")
+                print("1. Editar usuario \n2. Eliminar usuario \n3. Cerrar sesión \n4. Volver al menu principal")
                 opcion = int(input("Seleccione la opcion: "))
-                while opcion != 3:
+                while opcion != 4:
                     if opcion == 1:
                         editarUsuario(usuario)
                     elif opcion == 2:
-                        eliminarUsuario(usuario)
+                        usuario = eliminarUsuario(usuario)
+                        if usuario == 0:
+                            return usuario
+                    elif opcion == 3:
+                        usuario = cerrarSesion(usuario)
+                        return usuario
                     else:
                         print("Opción inválida")
                     
-                    print("1. Editar usuario \n2. Eliminar usuario \n3. Volver al menu principal")
+                    print("1. Editar usuario \n2. Eliminar usuario \n3. Cerrar sesión \n4. Volver al menu principal")
                     opcion = int(input("Seleccione la opcion: "))
-                return usuario
 
-    # if usuario != 0 and usuario != None:
     return usuario
