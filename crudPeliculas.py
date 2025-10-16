@@ -165,14 +165,13 @@ def eliminarPelicula():
 
 
 def crudPeliculas(usuario):
-    if usuario != 0 and usuario != None:
-        print(f'Usuario: {usuario["usuario"]} \nReseñas: {usuario["cantidad_reseñas"]}')
-    print("")
     opcionElegida = 0
     while opcionElegida != 5:
         print("----- CRUD de Películas -----")
         #Funciones disponibles si el USUARIO NO INICIO SESION
         if usuario == 0 or usuario == None:
+            print('Usuario no logueado')
+            print('')
             print("Debes iniciar sesión para acceder a las funciones de películas.")
             opcionElegida = 5
         #Funciones disponibles si el USUARIO INICIO SESION
@@ -203,6 +202,8 @@ def crudPeliculas(usuario):
                     buscarPelicula()
                 elif opcionElegida == 2:
                     mostrarPeliculas()
+                elif opcionElegida == 3:
+                    opcionElegida = 5
                 else:
                     print("Opción inválida. Por favor, seleccione una opción del 1 al 5.")
                 print(" ")

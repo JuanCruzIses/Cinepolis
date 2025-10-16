@@ -212,8 +212,8 @@ def crudUsuarios(usuario):
     if usuario != 0 and usuario != None:
         print(f'Usuario: {usuario["usuario"]} \nReseñas: {usuario["cantidad_reseñas"]}')
     print("")
-    opcion = 0
-    while opcion != 4:
+    ejecuta = True
+    while ejecuta != False:
         print("----- CRUD de Usuarios -----")
         #Funciones disponibles si el USUARIO NO INICIO SESION
         if usuario == 0 or usuario == None:
@@ -225,6 +225,8 @@ def crudUsuarios(usuario):
                 usuario = iniciarSesion()
             elif opcion == 3:
                 mostrarUsuarios()
+            elif opcion == 4:
+                ejecuta = False
             else:
                 print("Opción inválida")
         #Funciones disponibles si el USUARIO INICIO SESION
@@ -233,21 +235,20 @@ def crudUsuarios(usuario):
             if usuario["rol"] == "admin":
                 print("1. Editar usuario \n2. Eliminar usuario \n3. Mostrar usuarios \n4. Cerrar sesión \n5. Volver al menu principal")
                 opcion = int(input("Seleccione la opcion: "))
-                while opcion != 5:
-                    if opcion == 1:
-                        editarUsuarioAdmin()
-                    elif opcion == 2:
-                        eliminarUsuarioAdmin()
-                    elif opcion == 3:
-                        mostrarUsuarios()
-                    elif opcion == 4:
-                        usuario = cerrarSesion(usuario)
-                        return usuario
-                    else:
-                        print("Opción inválida")
-                    
-                    print("1. Editar usuario \n2. Eliminar usuario \n3. Mostrar usuarios \n4. Volver al menu principal")
-                    opcion = int(input("Seleccione la opcion: "))
+                if opcion == 1:
+                    editarUsuarioAdmin()
+                elif opcion == 2:
+                    eliminarUsuarioAdmin()
+                elif opcion == 3:
+                    mostrarUsuarios()
+                elif opcion == 4:
+                    usuario = cerrarSesion(usuario)
+                    return usuario
+                elif opcion == 5:
+                    ejecuta = False
+                else:
+                    print("Opción inválida")
+                
             #Funciones disponibles si el USUARIO TIENE ROL 'USER'            
             else:
                 print("1. Editar usuario \n2. Eliminar usuario \n3. Cerrar sesión \n4. Volver al menu principal")
@@ -263,12 +264,10 @@ def crudUsuarios(usuario):
                         usuario = cerrarSesion(usuario)
                         return usuario
                     elif opcion == 4:
-                        return
+                        ejecuta = False
                     else:
                         print("Opción inválida")
                     
-                    print("1. Editar usuario \n2. Eliminar usuario \n3. Volver al menu principal")
-                    opcion = int(input("Seleccione la opcion: "))
                 return usuario
 
     # if usuario != 0 and usuario != None:
