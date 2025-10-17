@@ -91,10 +91,10 @@ def mostrarPeliculas():
         print("")
 
 #----> Editar película <----
-def editarPelicula():
+def editarPelicula(usuario):
     print("")
     print("----- Editar películas -----")
-    pelicula_a_editar = buscarPelicula()
+    pelicula_a_editar = buscarPelicula(usuario)
 
     while pelicula_a_editar != "0":
         print("Editando la película:", pelicula_a_editar["titulo"])
@@ -141,10 +141,10 @@ def editarPelicula():
     
 
 #----> Eliminar película <----
-def eliminarPelicula():
+def eliminarPelicula(usuario):
     print("")
     print("----- Eliminar películas -----")
-    pelicula_a_eliminar = buscarPelicula()
+    pelicula_a_eliminar = buscarPelicula(usuario)
 
     while pelicula_a_eliminar != "0":
         peliculaEncontrada = True
@@ -161,7 +161,7 @@ def eliminarPelicula():
         if peliculaEncontrada == False:
             print("La película '" + pelicula_a_eliminar["titulo"] + "' no fue encontrada.")
 
-        pelicula_a_eliminar = buscarPelicula()
+        pelicula_a_eliminar = buscarPelicula(usuario)
 
 
 def crudPeliculas(usuario):
@@ -184,9 +184,9 @@ def crudPeliculas(usuario):
                 if opcionElegida == 1:
                     crearPelicula()
                 elif opcionElegida == 2:
-                    editarPelicula()
+                    editarPelicula(usuario)
                 elif opcionElegida == 3:
-                    eliminarPelicula()
+                    eliminarPelicula(usuario)
                 elif opcionElegida == 4:
                     mostrarPeliculas()
                 else:
@@ -199,7 +199,7 @@ def crudPeliculas(usuario):
                 opcionElegida = int(input("Seleccione la opción a ejecutar: "))
 
                 if opcionElegida == 1:
-                    buscarPelicula()
+                    buscarPelicula(usuario)
                 elif opcionElegida == 2:
                     mostrarPeliculas()
                 elif opcionElegida == 3:

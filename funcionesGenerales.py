@@ -13,7 +13,7 @@ import re
     Usamos re.escape para evitar que caracteres especiales rompan la busqueda
     Usamos re.IGNORECASE para que no diferencie entre mayusculas y minusculas
 """
-def buscarPelicula():
+def buscarPelicula(usuario):
     peliculaABuscar = input("Ingrese el nombre de la película a buscar o 0 para cancelar la operacion").strip().lower()
     while peliculaABuscar == "":
         peliculaABuscar = input("La busqueda no puede estar vacía. Ingrese el nombre de la película a buscar: ").strip().lower()
@@ -31,10 +31,15 @@ def buscarPelicula():
                 numeroPeliculaElegida = int(input("Número inválido. Seleccione un número de la lista brindada: "))
             if numeroPeliculaElegida != 0:
                 seleccionada = resultados[numeroPeliculaElegida - 1]
+                if (usuario["rol"] != "admin"):
+                    print(f'Título: {seleccionada["titulo"]} \nAño: {seleccionada["estreno"]} \nDirector: {seleccionada["director"]} \nGénero(s): {seleccionada["generos"]} \nPóster:  {"No disponible" if seleccionada["poster"] == "" else seleccionada["poster"]} \nSinopsis: {seleccionada["sinopsis"]}')
                 return seleccionada
             else:
                 print("Operación cancelada.")
                 return "0"
+        else:
+            print(f"No se encontraron resultados para '{peliculaABuscar}'.")
+            return "0"
     else:
         print("Operación cancelada.")
         return "0"

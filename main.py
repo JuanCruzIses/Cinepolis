@@ -10,7 +10,7 @@ from crudResenas import crudResenas
 def menuPrincipal():
     usuario = 0
     print("----- Sistema de Gestion -----")
-    print("1. Peliculas \n2. Usuarios \n3. Reseñas \n4. Salir")
+    print("1. Peliculas \n2. Usuarios \n3. Reseñas \n4. Finalizar programa")
     opcion = int(input("Seleccione la opcion: "))
     print(usuario)
     while opcion != 4:
@@ -27,7 +27,7 @@ def menuPrincipal():
         
         if usuario != 0 and usuario != None:
             print(f'Usuario: {usuario["usuario"]} \nReseñas: {usuario["cantidad_reseñas"]}')
-        print("\n1. Peliculas \n2. Usuarios \n3. Reseñas \n4. Salir")
+        print("\n1. Peliculas \n2. Usuarios \n3. Reseñas \n4. Finalizar programa")
         opcion = int(input("Seleccione la opcion: "))
         print("")
 
