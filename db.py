@@ -1,4 +1,5 @@
 #Listado de 100 peliculas (id, título, estreno, director, géneros, poster, sinopsis)
+
 listaPeliculas = [
     {
         "id": 1,
@@ -1341,15 +1342,15 @@ listaPeliculas = [
 
 ]
 
-#Listado de 50 usuarios (id, usuario, email, img, cantidad_reseñas)
+#Listado de 50 usuarios (id, usuario, email, img, cantidad_resenas)
 listaUsuarios = [
     {
         "id": -1,
         "usuario": "admin1",
         "email": "admin1@example.com",
         "img": "",
-        "cantidad_reseñas": 0,
-        "contraseña": "claveAdmin",
+        "cantidad": 0,
+        "clave": "claveAdmin",
         "rol": "admin"
     },
     {
@@ -1357,8 +1358,8 @@ listaUsuarios = [
         "usuario": "admin2",
         "email": "admin2@example.com",
         "img": "",
-        "cantidad_reseñas": 0,
-        "contraseña": "claveAdmin",
+        "cantidad_resenas": 0,
+        "clave": "claveAdmin",
         "rol": "admin"
     },
     {
@@ -1366,8 +1367,8 @@ listaUsuarios = [
         "usuario": "user1",
         "email": "user1@example.com",
         "img": "",
-        "cantidad_reseñas": 5,
-        "contraseña": "contraseña1",
+        "cantidad_resenas": 5,
+        "clave": "clave1",
         "rol": "user"
     },
     {
@@ -1375,8 +1376,8 @@ listaUsuarios = [
         "usuario": "user2",
         "email": "user2@example.com",
         "img": "",
-        "cantidad_reseñas": 3,
-        "contraseña": "contraseña2",
+        "cantidad_resenas": 3,
+        "clave": "clave2",
             "rol": "user"
     },
     {
@@ -1384,8 +1385,8 @@ listaUsuarios = [
         "usuario": "user3",
         "email": "user3@example.com",
         "img": "",
-        "cantidad_reseñas": 7,
-        "contraseña": "contraseña3",
+        "cantidad_resenas": 7,
+        "clave": "clave3",
             "rol": "user"
     },
     {
@@ -1393,8 +1394,8 @@ listaUsuarios = [
         "usuario": "user4",
         "email": "user4@example.com",
         "img": "",
-        "cantidad_reseñas": 2,
-        "contraseña": "contraseña4",
+        "cantidad_resenas": 2,
+        "clave": "clave4",
             "rol": "user"
     },
     {
@@ -1402,8 +1403,8 @@ listaUsuarios = [
         "usuario": "user5",
         "email": "user5@example.com",
         "img": "",
-        "cantidad_reseñas": 10,
-        "contraseña": "contraseña5",
+        "cantidad_resenas": 10,
+        "clave": "clave5",
             "rol": "user"
     },
     {
@@ -1411,8 +1412,8 @@ listaUsuarios = [
         "usuario": "user6",
         "email": "user6@example.com",
         "img": "",
-        "cantidad_reseñas": 1,
-        "contraseña": "contraseña6",
+        "cantidad_resenas": 1,
+        "clave": "clave6",
             "rol": "user"
     },
     {
@@ -1420,8 +1421,8 @@ listaUsuarios = [
         "usuario": "user7",
         "email": "user7@example.com",
         "img": "",
-        "cantidad_reseñas": 4,
-        "contraseña": "contraseña7",
+        "cantidad_resenas": 4,
+        "clave": "clave7",
             "rol": "user"
     },
     {
@@ -1429,8 +1430,8 @@ listaUsuarios = [
         "usuario": "user8",
         "email": "user8@example.com",
         "img": "",
-        "cantidad_reseñas": 6,
-        "contraseña": "contraseña8",
+        "cantidad_resenas": 6,
+        "clave": "clave8",
             "rol": "user"
     },
     {
@@ -1438,8 +1439,8 @@ listaUsuarios = [
         "usuario": "user9",
         "email": "user9@example.com",
         "img": "",
-        "cantidad_reseñas": 9,
-        "contraseña": "contraseña9",
+        "cantidad_resenas": 9,
+        "clave": "clave9",
             "rol": "user"
     },
     {
@@ -1447,8 +1448,8 @@ listaUsuarios = [
         "usuario": "user10",
         "email": "user10@example.com",
         "img": "",
-        "cantidad_reseñas": 8,
-        "contraseña": "contraseña10",
+        "cantidad_resenas": 8,
+        "clave": "clave10",
             "rol": "user"
     },
     {
@@ -1456,8 +1457,8 @@ listaUsuarios = [
         "usuario": "user11",
         "email": "user11@example.com",
         "img": "",
-        "cantidad_reseñas": 0,
-        "contraseña": "contraseña11",
+        "cantidad_resenas": 0,
+        "clave": "clave11",
             "rol": "user"
     },
     {
@@ -1465,8 +1466,8 @@ listaUsuarios = [
         "usuario": "user12",
         "email": "user12@example.com",
         "img": "",
-        "cantidad_reseñas": 12,
-        "contraseña": "contraseña12",
+        "cantidad_resenas": 12,
+        "clave": "clave12",
             "rol": "user"
     },
     {
@@ -1474,8 +1475,8 @@ listaUsuarios = [
         "usuario": "user13",
         "email": "user13@example.com",
         "img": "",
-        "cantidad_reseñas": 15,
-        "contraseña": "contraseña13",
+        "cantidad_resenas": 15,
+        "clave": "clave13",
             "rol": "user"
     },
     {
@@ -1483,8 +1484,8 @@ listaUsuarios = [
         "usuario": "user14",
         "email": "user14@example.com",
         "img": "",
-        "cantidad_reseñas": 2,
-        "contraseña": "contraseña14",
+        "cantidad_resenas": 2,
+        "clave": "clave14",
             "rol": "user"
     },
     {
@@ -1492,8 +1493,8 @@ listaUsuarios = [
         "usuario": "user15",
         "email": "user15@example.com",
         "img": "",
-        "cantidad_reseñas": 5,
-        "contraseña": "contraseña15",
+        "cantidad_resenas": 5,
+        "clave": "clave15",
             "rol": "user"
     },
     {
@@ -1501,8 +1502,8 @@ listaUsuarios = [
         "usuario": "user16",
         "email": "user16@example.com",
         "img": "",
-        "cantidad_reseñas": 7,
-        "contraseña": "contraseña16",
+        "cantidad_resenas": 7,
+        "clave": "clave16",
             "rol": "user"
     },
     {
@@ -1510,8 +1511,8 @@ listaUsuarios = [
         "usuario": "user17",
         "email": "user17@example.com",
         "img": "",
-        "cantidad_reseñas": 11,
-        "contraseña": "contraseña17",
+        "cantidad_resenas": 11,
+        "clave": "clave17",
             "rol": "user"
     },
     {
@@ -1519,8 +1520,8 @@ listaUsuarios = [
         "usuario": "user18",
         "email": "user18@example.com",
         "img": "",
-        "cantidad_reseñas": 6,
-        "contraseña": "contraseña18",
+        "cantidad_resenas": 6,
+        "clave": "clave18",
             "rol": "user"
     },
     {
@@ -1528,8 +1529,8 @@ listaUsuarios = [
         "usuario": "user19",
         "email": "user19@example.com",
         "img": "",
-        "cantidad_reseñas": 13,
-        "contraseña": "contraseña19",
+        "cantidad_resenas": 13,
+        "clave": "clave19",
             "rol": "user"
     },
     {
@@ -1537,8 +1538,8 @@ listaUsuarios = [
         "usuario": "user20",
         "email": "user20@example.com",
         "img": "",
-        "cantidad_reseñas": 9,
-        "contraseña": "contraseña20",
+        "cantidad_resenas": 9,
+        "clave": "clave20",
             "rol": "user"
     },
     {
@@ -1546,8 +1547,8 @@ listaUsuarios = [
         "usuario": "user21",
         "email": "user21@example.com",
         "img": "",
-        "cantidad_reseñas": 1,
-        "contraseña": "contraseña21",
+        "cantidad_resenas": 1,
+        "clave": "clave21",
             "rol": "user"
     },
     {
@@ -1555,8 +1556,8 @@ listaUsuarios = [
         "usuario": "user22",
         "email": "user22@example.com",
         "img": "",
-        "cantidad_reseñas": 3,
-        "contraseña": "contraseña22",
+        "cantidad_resenas": 3,
+        "clave": "clave22",
             "rol": "user"
     },
     {
@@ -1564,8 +1565,8 @@ listaUsuarios = [
         "usuario": "user23",
         "email": "user23@example.com",
         "img": "",
-        "cantidad_reseñas": 14,
-        "contraseña": "contraseña23",
+        "cantidad_resenas": 14,
+        "clave": "clave23",
             "rol": "user"
     },
     {
@@ -1573,8 +1574,8 @@ listaUsuarios = [
         "usuario": "user24",
         "email": "user24@example.com",
         "img": "",
-        "cantidad_reseñas": 7,
-        "contraseña": "contraseña24",
+        "cantidad_resenas": 7,
+        "clave": "clave24",
             "rol": "user"
     },
     {
@@ -1582,8 +1583,8 @@ listaUsuarios = [
         "usuario": "user25",
         "email": "user25@example.com",
         "img": "",
-        "cantidad_reseñas": 4,
-        "contraseña": "contraseña25",
+        "cantidad_resenas": 4,
+        "clave": "clave25",
             "rol": "user"
     },
     {
@@ -1591,8 +1592,8 @@ listaUsuarios = [
         "usuario": "user26",
         "email": "user26@example.com",
         "img": "",
-        "cantidad_reseñas": 8,
-        "contraseña": "contraseña26",
+        "cantidad_resenas": 8,
+        "clave": "clave26",
             "rol": "user"
     },
     {
@@ -1600,8 +1601,8 @@ listaUsuarios = [
         "usuario": "user27",
         "email": "user27@example.com",
         "img": "",
-        "cantidad_reseñas": 6,
-        "contraseña": "contraseña27",
+        "cantidad_resenas": 6,
+        "clave": "clave27",
             "rol": "user"
     },
     {
@@ -1609,8 +1610,8 @@ listaUsuarios = [
         "usuario": "user28",
         "email": "user28@example.com",
         "img": "",
-        "cantidad_reseñas": 10,
-        "contraseña": "contraseña28",
+        "cantidad_resenas": 10,
+        "clave": "clave28",
             "rol": "user"
     },
     {
@@ -1618,8 +1619,8 @@ listaUsuarios = [
         "usuario": "user29",
         "email": "user29@example.com",
         "img": "",
-        "cantidad_reseñas": 12,
-        "contraseña": "contraseña29",
+        "cantidad_resenas": 12,
+        "clave": "clave29",
             "rol": "user"
     },
     {
@@ -1627,8 +1628,8 @@ listaUsuarios = [
         "usuario": "user30",
         "email": "user30@example.com",
         "img": "",
-        "cantidad_reseñas": 2,
-        "contraseña": "contraseña30",
+        "cantidad_resenas": 2,
+        "clave": "clave30",
             "rol": "user"
     },
     {
@@ -1636,8 +1637,8 @@ listaUsuarios = [
         "usuario": "user31",
         "email": "user31@example.com",
         "img": "",
-        "cantidad_reseñas": 9,
-        "contraseña": "contraseña31",
+        "cantidad_resenas": 9,
+        "clave": "clave31",
             "rol": "user"
     },
     {
@@ -1645,8 +1646,8 @@ listaUsuarios = [
         "usuario": "user32",
         "email": "user32@example.com",
         "img": "",
-        "cantidad_reseñas": 7,
-        "contraseña": "contraseña32",
+        "cantidad_resenas": 7,
+        "clave": "clave32",
             "rol": "user"
     },
     {
@@ -1654,8 +1655,8 @@ listaUsuarios = [
         "usuario": "user33",
         "email": "user33@example.com",
         "img": "",
-        "cantidad_reseñas": 11,
-        "contraseña": "contraseña33",
+        "cantidad_resenas": 11,
+        "clave": "clave33",
             "rol": "user"
     },
     {
@@ -1663,8 +1664,8 @@ listaUsuarios = [
         "usuario": "user34",
         "email": "user34@example.com",
         "img": "",
-        "cantidad_reseñas": 0,
-        "contraseña": "contraseña34",
+        "cantidad_resenas": 0,
+        "clave": "clave34",
             "rol": "user"
     },
     {
@@ -1672,8 +1673,8 @@ listaUsuarios = [
         "usuario": "user35",
         "email": "user35@example.com",
         "img": "",
-        "cantidad_reseñas": 4,
-        "contraseña": "contraseña35",
+        "cantidad_resenas": 4,
+        "clave": "clave35",
             "rol": "user"
     },
     {
@@ -1681,8 +1682,8 @@ listaUsuarios = [
         "usuario": "user36",
         "email": "user36@example.com",
         "img": "",
-        "cantidad_reseñas": 13,
-        "contraseña": "contraseña36",
+        "cantidad_resenas": 13,
+        "clave": "clave36",
             "rol": "user"
     },
     {
@@ -1690,8 +1691,8 @@ listaUsuarios = [
         "usuario": "user37",
         "email": "user37@example.com",
         "img": "",
-        "cantidad_reseñas": 15,
-        "contraseña": "contraseña37",
+        "cantidad_resenas": 15,
+        "clave": "clave37",
             "rol": "user"
     },
     {
@@ -1699,8 +1700,8 @@ listaUsuarios = [
         "usuario": "user38",
         "email": "user38@example.com",
         "img": "",
-        "cantidad_reseñas": 1,
-        "contraseña": "contraseña38",
+        "cantidad_resenas": 1,
+        "clave": "clave38",
             "rol": "user"
     },
     {
@@ -1708,8 +1709,8 @@ listaUsuarios = [
         "usuario": "user39",
         "email": "user39@example.com",
         "img": "",
-        "cantidad_reseñas": 5,
-        "contraseña": "contraseña39",
+        "cantidad_resenas": 5,
+        "clave": "clave39",
             "rol": "user"
     },
     {
@@ -1717,8 +1718,8 @@ listaUsuarios = [
         "usuario": "user40",
         "email": "user40@example.com",
         "img": "",
-        "cantidad_reseñas": 14,
-        "contraseña": "contraseña40",
+        "cantidad_resenas": 14,
+        "clave": "clave40",
             "rol": "user"
     },
     {
@@ -1726,8 +1727,8 @@ listaUsuarios = [
         "usuario": "user41",
         "email": "user41@example.com",
         "img": "",
-        "cantidad_reseñas": 3,
-        "contraseña": "contraseña41",
+        "cantidad_resenas": 3,
+        "clave": "clave41",
             "rol": "user"
     },
     {
@@ -1735,8 +1736,8 @@ listaUsuarios = [
         "usuario": "user42",
         "email": "user42@example.com",
         "img": "",
-        "cantidad_reseñas": 9,
-        "contraseña": "contraseña42",
+        "cantidad_resenas": 9,
+        "clave": "clave42",
             "rol": "user"
     },
     {
@@ -1744,8 +1745,8 @@ listaUsuarios = [
         "usuario": "user43",
         "email": "user43@example.com",
         "img": "",
-        "cantidad_reseñas": 6,
-        "contraseña": "contraseña43",
+        "cantidad_resenas": 6,
+        "clave": "clave43",
             "rol": "user"
     },
     {
@@ -1753,8 +1754,8 @@ listaUsuarios = [
         "usuario": "user44",
         "email": "user44@example.com",
         "img": "",
-        "cantidad_reseñas": 2,
-        "contraseña": "contraseña44",
+        "cantidad_resenas": 2,
+        "clave": "clave44",
             "rol": "user"
     },
     {
@@ -1762,8 +1763,8 @@ listaUsuarios = [
         "usuario": "user45",
         "email": "user45@example.com",
         "img": "",
-        "cantidad_reseñas": 12,
-        "contraseña": "contraseña45",
+        "cantidad_resenas": 12,
+        "clave": "clave45",
             "rol": "user"
     },
     {
@@ -1771,8 +1772,8 @@ listaUsuarios = [
         "usuario": "user46",
         "email": "user46@example.com",
         "img": "",
-        "cantidad_reseñas": 7,
-        "contraseña": "contraseña46",
+        "cantidad_resenas": 7,
+        "clave": "clave46",
             "rol": "user"
     },
     {
@@ -1780,8 +1781,8 @@ listaUsuarios = [
         "usuario": "user47",
         "email": "user47@example.com",
         "img": "",
-        "cantidad_reseñas": 8,
-        "contraseña": "contraseña47",
+        "cantidad_resenas": 8,
+        "clave": "clave47",
             "rol": "user"
     },
     {
@@ -1789,8 +1790,8 @@ listaUsuarios = [
         "usuario": "user48",
         "email": "user48@example.com",
         "img": "",
-        "cantidad_reseñas": 10,
-        "contraseña": "contraseña48",
+        "cantidad_resenas": 10,
+        "clave": "clave48",
             "rol": "user"
     },
     {
@@ -1798,8 +1799,8 @@ listaUsuarios = [
         "usuario": "user49",
         "email": "user49@example.com",
         "img": "",
-        "cantidad_reseñas": 5,
-        "contraseña": "contraseña49",
+        "cantidad_resenas": 5,
+        "clave": "clave49",
             "rol": "user"
     },
     {
@@ -1807,8 +1808,8 @@ listaUsuarios = [
         "usuario": "user50",
         "email": "user50@example.com",
         "img": "",
-        "cantidad_reseñas": 11,
-        "contraseña": "clave",
+        "cantidad_resenas": 11,
+        "clave": "clave",
         "rol": "user"
     }
 ]

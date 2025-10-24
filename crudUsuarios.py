@@ -1,6 +1,8 @@
 #Import de lista de usuarios y reseñas contenido en db.py
 from db import listaUsuarios, listaResenas
+from funcionesFile import traerJson, convertirJson
 
+listaUsuarios = traerJson("usuarios.json")
 # Gestión de Usuarios (CRUD)
 def crearUsuario():
     if len(listaUsuarios) == 0:
@@ -23,13 +25,13 @@ def crearUsuario():
             print("Este email ya se encuentra registrado.")
             return
     
-    contraseña = input("Ingrese contraseña: ")
-    while len(contraseña) < 8:
+    clave = input("Ingrese contraseña: ")
+    while len(clave) < 8:
         print("La contraseña debe tener al menos 8 caracteres")
-        contraseña = input("Ingrese contraseña (mínimo 8 caracteres): ")
+        clave = input("Ingrese contraseña (mínimo 8 caracteres): ")
 
     confirmarContrasena = input("Confirme la contraseña: ")
-    while contraseña != confirmarContrasena:
+    while clave != confirmarContrasena:
         print("Las contraseñas no coinciden. Intente nuevamente.")
         confirmarContrasena = input("Confirme la contraseña: ")
 
@@ -41,18 +43,19 @@ def crearUsuario():
         "email": email,
         "img": img,
         "cantidad_reseñas": 0,
-        "contraseña": contraseña,
+        "clave": clave,
         "rol": "user"
     }
 
     listaUsuarios.append(nuevo_usuario)
+    convertirJson("usuarios.json", listaUsuarios)
     print("Usuario '" + usuario + "' creado exitosamente con ID " + str(nuevo_id))
     return
 
 
 def iniciarSesion():
     email = input("Ingrese su email: ")
-    contraseña = input("Ingrese su contraseña: ")
+    clave = input("Ingrese su contraseña: ")
 
     usuario_encontrado = list(filter(lambda u: u["email"] == email, listaUsuarios))
     if len(usuario_encontrado) == 0:
@@ -60,7 +63,7 @@ def iniciarSesion():
         print("")
         return 0
     
-    if usuario_encontrado[0]["contraseña"] == contraseña:
+    if usuario_encontrado[0]["clave"] == clave:
         print("Inicio de sesion exitoso, bienvenido " + usuario_encontrado[0]["usuario"])
         print("")
         return usuario_encontrado[0]
@@ -86,7 +89,7 @@ def editarUsuario(usuario):
     nuevo_usuario = input(f"Nuevo nombre de usuario (actual: {usuario_obj[0]['usuario']}): ")
     nuevo_email = input(f"Nuevo email (actual: {usuario_obj[0]['email']}): ")
     nueva_img = input(f"Nueva url de imagen (actual: {usuario_obj[0]['img']}): ")
-    nueva_contraseña = input("Nueva contraseña: ")
+    nueva_clave = input("Nueva contraseña: ")
 
     if nuevo_usuario != "":
         usuario_obj[0]["usuario"] = nuevo_usuario
@@ -94,9 +97,11 @@ def editarUsuario(usuario):
         usuario_obj[0]["email"] = nuevo_email
     if nueva_img != "":
         usuario_obj[0]["img"] = nueva_img
-    if nueva_contraseña != "":
-        usuario_obj[0]["contraseña"] = nueva_contraseña
+    if nueva_clave != "":
+        usuario_obj[0]["clave"] = nueva_clave
 
+    convertirJson("usuarios.json", listaUsuarios)
+    
     print("El usuario ha sido actualizado correctamente")
     print("")
     return
@@ -128,7 +133,8 @@ def eliminarUsuario(usuario):
                 i += 1
     
         listaUsuarios.remove(usuario_obj[0])
-        print(f"El usuario '{usuario['usuario']}' y sus reseñas han sido eliminados correctamente.")
+        convertirJson("usuarios.json", listaUsuarios)
+        print(f"El usuario '{usuario['usuario']}' ha sido eliminado correctamente.")
         
         return 0
     else:
@@ -161,7 +167,7 @@ def editarUsuarioAdmin():
     nuevo_usuario = input(f"Nuevo nombre de usuario (actual: {usuario_obj['usuario']}): ")
     nuevo_email = input(f"Nuevo email (actual: {usuario_obj['email']}): ")
     nueva_img = input(f"Nueva url de imagen (actual: {usuario_obj['img']}): ")
-    nueva_contraseña = input("Nueva contraseña: ")
+    nueva_clave = input("Nueva contraseña: ")
 
     if nuevo_usuario != "":
         usuario_obj["usuario"] = nuevo_usuario
@@ -169,9 +175,11 @@ def editarUsuarioAdmin():
         usuario_obj["email"] = nuevo_email
     if nueva_img != "":
         usuario_obj["img"] = nueva_img
-    if nueva_contraseña != "":
-        usuario_obj["contraseña"] = nueva_contraseña
+    if nueva_clave != "":
+        usuario_obj["clave"] = nueva_clave
 
+    convertirJson("usuarios.json", listaUsuarios)
+    
     print("El usuario ha sido actualizado correctamente")
     print("")
     return
@@ -194,6 +202,7 @@ def eliminarUsuarioAdmin():
             i += 1
 
     listaUsuarios.remove(usuario_obj[0])
+    convertirJson("usuarios.json", listaUsuarios)
     print(f"El usuario '{usuario_obj[0]['usuario']}' y sus reseñas han sido eliminados correctamente.")
     return
 

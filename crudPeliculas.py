@@ -1,7 +1,8 @@
 #Imports necesarios para el CRUD 
-from db import listaPeliculas
+# from db import listaPeliculas
 from funcionesGenerales import buscarPelicula 
 import os
+from funcionesFile import convertirJson, traerJson
 
 # ---> Funciones para la gestión de películas (CRUD) <---
 """
@@ -14,6 +15,7 @@ def crearPelicula():
     print("")
     print("----- Crear películas -----")
 
+    listaPeliculas = traerJson("peliculas.json")
     continuar = "si"
     while continuar.lower() == "si":
         if listaPeliculas:
@@ -65,6 +67,7 @@ def crearPelicula():
         }
 
         listaPeliculas.append(nueva_pelicula)
+        convertirJson("peliculas.json", listaPeliculas)
         print("La película '" + nueva_pelicula["titulo"] + "' fue creada exitosamente con ID " + str(nueva_pelicula["id"]) + ".")
         print("")
 
@@ -76,6 +79,7 @@ def crearPelicula():
 def mostrarPeliculas():
     print("")
     print("----- Listado de películas -----")
+    listaPeliculas = traerJson("peliculas.json")
     for pelicula in listaPeliculas:
         id = pelicula["id"]
         titulo = pelicula["titulo"]
@@ -95,6 +99,7 @@ def editarPelicula(usuario):
     print("")
     print("----- Editar películas -----")
     pelicula_a_editar = buscarPelicula(usuario)
+    listaPeliculas = traerJson("peliculas.json")
 
     while pelicula_a_editar != "0":
         print("Editando la película:", pelicula_a_editar["titulo"])
@@ -134,6 +139,7 @@ def editarPelicula(usuario):
             if pelicula["titulo"].lower() == pelicula_a_editar["titulo"].lower():
                 pelicula = pelicula_a_editar
         
+        convertirJson("peliculas.json", listaPeliculas)
         print("La película fue actualizada correctamente.")
         print("")
 
@@ -145,6 +151,7 @@ def eliminarPelicula(usuario):
     print("")
     print("----- Eliminar películas -----")
     pelicula_a_eliminar = buscarPelicula(usuario)
+    listaPeliculas = traerJson("peliculas.json")
 
     while pelicula_a_eliminar != "0":
         peliculaEncontrada = True
@@ -154,6 +161,7 @@ def eliminarPelicula(usuario):
             confirmacion = input("Respuesta inválida. Responda 'Si' o 'No': ")
         if confirmacion.lower() == "si":
             listaPeliculas.remove(pelicula_a_eliminar)
+            convertirJson("peliculas.json", listaPeliculas)
             print("La película fue eliminada correctamente.")
         else:
             print("Operación de eliminación cancelada.")

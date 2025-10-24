@@ -1,0 +1,362 @@
+[
+    {
+        "id": 1,
+        "usuario": "user1",
+        "pelicula": "Inception",
+        "puntuacion": 8.5,
+        "titulo": "Gran película",
+        "comentario": "Me encantó la trama y los efectos visuales."
+    },
+    {
+        "id": 2,
+        "usuario": "user2",
+        "pelicula": "El Padrino",
+        "puntuacion": 9.7,
+        "titulo": "Obra maestra",
+        "comentario": "Actuaciones brillantes y una historia intensa."
+    },
+    {
+        "id": 3,
+        "usuario": "user3",
+        "pelicula": "Forrest Gump",
+        "puntuacion": 8.9,
+        "titulo": "Inspiradora",
+        "comentario": "Una película que emociona y deja huella."
+    },
+    {
+        "id": 4,
+        "usuario": "user4",
+        "pelicula": "Parasite",
+        "puntuacion": 9.2,
+        "titulo": "Impactante",
+        "comentario": "El giro final es sorprendente y la crítica social excelente."
+    },
+    {
+        "id": 5,
+        "usuario": "user5",
+        "pelicula": "Amélie",
+        "puntuacion": 8.7,
+        "titulo": "Encantadora",
+        "comentario": "Visualmente hermosa y con un mensaje positivo."
+    },
+    {
+        "id": 6,
+        "usuario": "user1",
+        "pelicula": "Ciudad de Dios",
+        "puntuacion": 9.0,
+        "titulo": "Realista y cruda",
+        "comentario": "Retrato fuerte de la vida en las favelas."
+    },
+    {
+        "id": 7,
+        "usuario": "user2",
+        "pelicula": "La lista de Schindler",
+        "puntuacion": 9.8,
+        "titulo": "Conmovedora",
+        "comentario": "Una historia que no se olvida fácilmente."
+    },
+    {
+        "id": 8,
+        "usuario": "user3",
+        "pelicula": "Pulp Fiction",
+        "puntuacion": 9.1,
+        "titulo": "Genial",
+        "comentario": "Diálogos únicos y escenas memorables."
+    },
+    {
+        "id": 9,
+        "usuario": "user4",
+        "pelicula": "El viaje de Chihiro",
+        "puntuacion": 8.8,
+        "titulo": "Mágica",
+        "comentario": "Animación y narrativa excepcionales."
+    },
+    {
+        "id": 10,
+        "usuario": "user5",
+        "pelicula": "Gladiador",
+        "puntuacion": 9.3,
+        "titulo": "Épica",
+        "comentario": "Acción y drama en su máxima expresión."
+    },
+    {
+        "id": 11,
+        "usuario": "user1",
+        "pelicula": "Titanic",
+        "puntuacion": 8.6,
+        "titulo": "Emotiva",
+        "comentario": "Historia de amor y tragedia inolvidable."
+    },
+    {
+        "id": 12,
+        "usuario": "user2",
+        "pelicula": "The Dark Knight",
+        "puntuacion": 9.5,
+        "titulo": "Oscura y profunda",
+        "comentario": "El Joker es un villano impresionante."
+    },
+    {
+        "id": 13,
+        "usuario": "user3",
+        "pelicula": "El laberinto del fauno",
+        "puntuacion": 8.7,
+        "titulo": "Fábula oscura",
+        "comentario": "Fantástica mezcla de historia y fantasía."
+    },
+    {
+        "id": 14,
+        "usuario": "user4",
+        "pelicula": "La La Land",
+        "puntuacion": 8.9,
+        "titulo": "Musical brillante",
+        "comentario": "Canciones y fotografía espectaculares."
+    },
+    {
+        "id": 15,
+        "usuario": "user5",
+        "pelicula": "Interstellar",
+        "puntuacion": 9.4,
+        "titulo": "Ciencia y emoción",
+        "comentario": "Una aventura espacial conmovedora."
+    },
+    {
+        "id": 16,
+        "usuario": "user1",
+        "pelicula": "Matrix",
+        "puntuacion": 9.0,
+        "titulo": "Revolucionaria",
+        "comentario": "Acción y filosofía en una sola película."
+    },
+    {
+        "id": 17,
+        "usuario": "user2",
+        "pelicula": "La vida es bella",
+        "puntuacion": 9.2,
+        "titulo": "Tierna y triste",
+        "comentario": "Un padre dispuesto a todo por su hijo."
+    },
+    {
+        "id": 18,
+        "usuario": "user3",
+        "pelicula": "El club de la pelea",
+        "puntuacion": 8.8,
+        "titulo": "Provocadora",
+        "comentario": "Guion y actuaciones sobresalientes."
+    },
+    {
+        "id": 19,
+        "usuario": "user4",
+        "pelicula": "Coco",
+        "puntuacion": 9.1,
+        "titulo": "Emotiva y colorida",
+        "comentario": "La música y la familia son el centro."
+    },
+    {
+        "id": 20,
+        "usuario": "user5",
+        "pelicula": "Joker",
+        "puntuacion": 9.0,
+        "titulo": "Perturbadora",
+        "comentario": "Retrato psicológico impresionante."
+    },
+    {
+        "id": 21,
+        "usuario": "user1",
+        "pelicula": "Avatar",
+        "puntuacion": 8.7,
+        "titulo": "Visualmente impactante",
+        "comentario": "Efectos especiales y mensaje ecológico."
+    },
+    {
+        "id": 22,
+        "usuario": "user2",
+        "pelicula": "Whiplash",
+        "puntuacion": 9.3,
+        "titulo": "Intensa",
+        "comentario": "La exigencia y el arte llevados al límite."
+    },
+    {
+        "id": 23,
+        "usuario": "user3",
+        "pelicula": "El resplandor",
+        "puntuacion": 8.6,
+        "titulo": "Terror psicológico",
+        "comentario": "Ambiente inquietante y actuaciones geniales."
+    },
+    {
+        "id": 24,
+        "usuario": "user4",
+        "pelicula": "Amadeus",
+        "puntuacion": 8.9,
+        "titulo": "Genio y envidia",
+        "comentario": "Historia fascinante sobre Mozart."
+    },
+    {
+        "id": 25,
+        "usuario": "user5",
+        "pelicula": "Her",
+        "puntuacion": 8.8,
+        "titulo": "Moderna y sensible",
+        "comentario": "Reflexión sobre la tecnología y el amor."
+    },
+    {
+        "id": 26,
+        "usuario": "user1",
+        "pelicula": "Toy Story",
+        "puntuacion": 9.2,
+        "titulo": "Divertida y nostálgica",
+        "comentario": "Perfecta para todas las edades."
+    },
+    {
+        "id": 27,
+        "usuario": "user2",
+        "pelicula": "Los Increíbles",
+        "puntuacion": 8.7,
+        "titulo": "Familiar y entretenida",
+        "comentario": "Superhéroes con corazón."
+    },
+    {
+        "id": 28,
+        "usuario": "user3",
+        "pelicula": "Shrek",
+        "puntuacion": 8.9,
+        "titulo": "Divertida y original",
+        "comentario": "Humor para grandes y chicos."
+    },
+    {
+        "id": 29,
+        "usuario": "user4",
+        "pelicula": "Up",
+        "puntuacion": 9.0,
+        "titulo": "Emotiva y aventurera",
+        "comentario": "La historia de Carl es conmovedora."
+    },
+    {
+        "id": 30,
+        "usuario": "user5",
+        "pelicula": "Wall-E",
+        "puntuacion": 9.1,
+        "titulo": "Poética y ecológica",
+        "comentario": "Un robot adorable y una gran lección."
+    },
+    {
+        "id": 36,
+        "usuario": "user1",
+        "pelicula": "Zootopia",
+        "puntuacion": 5.9,
+        "titulo": "Buena animación",
+        "comentario": "La trama es algo predecible y simple."
+    },
+    {
+        "id": 37,
+        "usuario": "user2",
+        "pelicula": "Los juegos del hambre",
+        "puntuacion": 6.3,
+        "titulo": "Acción aceptable",
+        "comentario": "No me convenció el desarrollo de los personajes."
+    },
+    {
+        "id": 38,
+        "usuario": "user3",
+        "pelicula": "Harry Potter y la piedra filosofal",
+        "puntuacion": 6.7,
+        "titulo": "Entretenida",
+        "comentario": "Buena para pasar el rato, pero no destaca."
+    },
+    {
+        "id": 39,
+        "usuario": "user4",
+        "pelicula": "Harry Potter y las reliquias de la muerte (Parte 2)",
+        "puntuacion": 6.1,
+        "titulo": "Final esperado",
+        "comentario": "El desenlace fue predecible y algo largo."
+    },
+    {
+        "id": 40,
+        "usuario": "user5",
+        "pelicula": "El señor de los anillos: La comunidad del anillo",
+        "puntuacion": 6.4,
+        "titulo": "Demasiado extensa",
+        "comentario": "La duración afecta el ritmo de la película."
+    },
+    {
+        "id": 41,
+        "usuario": "user1",
+        "pelicula": "El señor de los anillos: El retorno del rey",
+        "puntuacion": 5.7,
+        "titulo": "Visualmente buena",
+        "comentario": "La historia se vuelve confusa por momentos."
+    },
+    {
+        "id": 42,
+        "usuario": "user2",
+        "pelicula": "Matrix Reloaded",
+        "puntuacion": 4.9,
+        "titulo": "Inferior a la primera",
+        "comentario": "No logra el impacto de la original."
+    },
+    {
+        "id": 43,
+        "usuario": "user3",
+        "pelicula": "Matrix Revolutions",
+        "puntuacion": 5.2,
+        "titulo": "Final flojo",
+        "comentario": "Esperaba más del cierre de la trilogía."
+    },
+    {
+        "id": 44,
+        "usuario": "user4",
+        "pelicula": "El rey león",
+        "puntuacion": 6.6,
+        "titulo": "Clásico pero sobrevalorado",
+        "comentario": "No me emocionó tanto como a otros."
+    },
+    {
+        "id": 45,
+        "usuario": "user5",
+        "pelicula": "Soul",
+        "puntuacion": 6.8,
+        "titulo": "Interesante pero lenta",
+        "comentario": "El mensaje es bueno pero le falta ritmo."
+    },
+    {
+        "id": 46,
+        "usuario": "user1",
+        "pelicula": "El bueno, el malo y el feo",
+        "puntuacion": 5.6,
+        "titulo": "Demasiado antigua",
+        "comentario": "No conecté con los personajes."
+    },
+    {
+        "id": 47,
+        "usuario": "user2",
+        "pelicula": "Los siete samuráis",
+        "puntuacion": 6.0,
+        "titulo": "Lenta",
+        "comentario": "La acción tarda en llegar."
+    },
+    {
+        "id": 48,
+        "usuario": "user3",
+        "pelicula": "Casablanca",
+        "puntuacion": 5.4,
+        "titulo": "No me atrapó",
+        "comentario": "Esperaba más por su fama."
+    },
+    {
+        "id": 49,
+        "usuario": "user4",
+        "pelicula": "El silencio de los inocentes",
+        "puntuacion": 6.2,
+        "titulo": "Interesante pero densa",
+        "comentario": "El ritmo es muy pausado."
+    },
+    {
+        "id": 50,
+        "usuario": "user5",
+        "pelicula": "12 estrenos de esclavitud",
+        "puntuacion": 6.5,
+        "titulo": "Dura pero lenta",
+        "comentario": "La historia es fuerte pero le falta dinamismo."
+    }
+]

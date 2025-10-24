@@ -15,7 +15,7 @@ def menuPrincipal():
     print(usuario)
     while opcion != 4:
         if usuario != 0 and usuario != None:
-            print(f'Usuario: {usuario["usuario"]} \nReseñas: {usuario["cantidad_reseñas"]}')
+            print(f'Usuario: {usuario["usuario"]} \nReseñas: {usuario["cantidad_resenas"]}')
         if opcion == 1:
             crudPeliculas(usuario)
         elif opcion == 2:
@@ -26,7 +26,7 @@ def menuPrincipal():
             print("Opcion invalida")
         
         if usuario != 0 and usuario != None:
-            print(f'Usuario: {usuario["usuario"]} \nReseñas: {usuario["cantidad_reseñas"]}')
+            print(f'Usuario: {usuario["usuario"]} \nReseñas: {usuario["cantidad_resenas"]}')
         print("\n1. Peliculas \n2. Usuarios \n3. Reseñas \n4. Finalizar programa")
         opcion = int(input("Seleccione la opcion: "))
         print("")
