@@ -1261,5 +1261,16 @@
         ],
         "sinopsis": "",
         "poster": ""
+    },
+    {
+        "id": 103,
+        "titulo": "Nueva pelicula",
+        "estreno": 2025,
+        "director": "Quentin Tarantino",
+        "generos": [
+            "thriller"
+        ],
+        "sinopsis": "Sinopsis de prueba con numeros 1234",
+        "poster": ""
     }
 ]

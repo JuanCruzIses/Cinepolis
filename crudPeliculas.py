@@ -19,7 +19,7 @@ def crearPelicula():
     continuar = "si"
     while continuar.lower() == "si":
         if listaPeliculas:
-            nuevo_id = max(p["id"] for p in listaPeliculas) + 1 # En esta linea genero un id unico que siempre va a ser el ultimo mas uno
+            nuevo_id = max(p["id"] for p in listaPeliculas) + 1
         else:
             nuevo_id = 1
 
@@ -34,7 +34,7 @@ def crearPelicula():
         if existe:
             print("Ya existe una película con ese título.")
             continuar = input("¿Desea intentar con otra película? Si o No: ")
-            while continuar.lower() != "si" and continuar.lower() != "no":
+            while continuar.lower() not in ["si", "no"]:
                 continuar = input("Respuesta inválida. Responda Si o No: ")
             continue
 
@@ -51,17 +51,21 @@ def crearPelicula():
         generos_texto = input("Ingrese los géneros (separados por comas): ")
         while generos_texto == "":
             generos_texto = input("Debe ingresar al menos un género: ")
-        generos = generos_texto.split(",")
+        
+        generos = set(g.strip() for g in generos_texto.split(","))
 
         sinopsis = input("Ingrese la sinopsis (opcional): ")
         poster = input("Ingrese la URL del póster (opcional): ")
 
+        # TUPLA
+        datos_pelicula = (nuevo_id, titulo, estreno, director)
+
         nueva_pelicula = {
-            "id": nuevo_id,
-            "titulo": titulo,
-            "estreno": estreno,
-            "director": director,
-            "generos": generos,
+            "id": datos_pelicula[0],
+            "titulo": datos_pelicula[1],
+            "estreno": datos_pelicula[2],
+            "director": datos_pelicula[3],
+            "generos": list(generos),
             "sinopsis": sinopsis,
             "poster": poster
         }
@@ -72,27 +76,24 @@ def crearPelicula():
         print("")
 
         continuar = input("¿Desea crear otra película? (Si / No): ")
-        while continuar.lower() != "si" and continuar.lower() != "no":
+        while continuar.lower() not in ["si", "no"]:
             continuar = input("Respuesta inválida. Responda 'Si' o 'No': ")        
 
-#----> Mostrar película <----
+
 def mostrarPeliculas():
     print("")
     print("----- Listado de películas -----")
     listaPeliculas = traerJson("peliculas.json")
     for pelicula in listaPeliculas:
-        id = pelicula["id"]
-        titulo = pelicula["titulo"]
-        estreno = pelicula["estreno"]
-        director = pelicula["director"]
+        datos = (pelicula["id"], pelicula["titulo"], pelicula["estreno"], pelicula["director"])
+        id, titulo, estreno, director = datos  # Desempaquetado de tupla
+
         generos = ", ".join(pelicula["generos"])
         sinopsis = pelicula["sinopsis"]
         poster = pelicula["poster"]
-        
-        print(f"ID: {id} \nTitulo: {titulo} \nEstreno: {estreno} \nDirector: {director} \nGeneros: {generos} \nSinopsis: {sinopsis} \nPoster: {poster}   " )
-        print("")
-        print("-------------------------------")
-        print("")
+
+        print(f"ID: {id}\nTítulo: {titulo}\nEstreno: {estreno}\nDirector: {director}\nGéneros: {generos}\nSinopsis: {sinopsis}\nPóster: {poster}")
+        print("-------------------------------\n")
 
 #----> Editar película <----
 def editarPelicula(usuario):

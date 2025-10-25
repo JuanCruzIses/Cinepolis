@@ -45,15 +45,6 @@
         "rol": "user"
     },
     {
-        "id": 4,
-        "usuario": "user4",
-        "email": "user4@example.com",
-        "img": "",
-        "cantidad_resenas": 2,
-        "clave": "clave4",
-        "rol": "user"
-    },
-    {
         "id": 5,
         "usuario": "user5",
         "email": "user5@example.com",
@@ -465,6 +456,24 @@
         "img": "",
         "cantidad_resenas": 11,
         "clave": "clave",
+        "rol": "user"
+    },
+    {
+        "id": 51,
+        "usuario": "Juan",
+        "email": "juan@gmail.com",
+        "img": "",
+        "cantidad_resenas": 0,
+        "clave": "123456789",
+        "rol": "user"
+    },
+    {
+        "id": 52,
+        "usuario": "Joaquin",
+        "email": "joaco@gmail.com",
+        "img": "",
+        "cantidad_resenas": 0,
+        "clave": "123456789",
         "rol": "user"
     }
 ]

@@ -1,4 +1,4 @@
-#Import de lista de usuarios y reseñas contenido en db.py
+# Import de lista de usuarios y reseñas contenido en db.py
 from db import listaUsuarios, listaResenas
 from funcionesFile import traerJson, convertirJson
 
@@ -8,11 +8,11 @@ def crearUsuario():
     if len(listaUsuarios) == 0:
         nuevo_id = 1
     else:
-        nuevo_id = listaUsuarios[-1]["id"] + 1  # agarro el ultimo id y le agrego 1
+        nuevo_id = listaUsuarios[-1]["id"] + 1  # agarro el último id y le agrego 1
 
     usuario = input("Ingrese nombre de usuario: ")
     while usuario == "":
-        usuario = input("El usuario no puede estar vacio. Ingrese nombre de usuario: ")
+        usuario = input("El usuario no puede estar vacío. Ingrese nombre de usuario: ")
 
     for i in range(len(listaUsuarios)):
         if listaUsuarios[i]["usuario"] == usuario:
@@ -42,8 +42,8 @@ def crearUsuario():
         "usuario": usuario,
         "email": email,
         "img": img,
-        "cantidad_reseñas": 0,
-        "clave": clave,
+        "cantidad_resenas": 0,
+        clave: clave,
         "rol": "user"
     }
 
@@ -57,20 +57,25 @@ def iniciarSesion():
     email = input("Ingrese su email: ")
     clave = input("Ingrese su contraseña: ")
 
-    usuario_encontrado = list(filter(lambda u: u["email"] == email, listaUsuarios))
-    if len(usuario_encontrado) == 0:
+    usuario_encontrado = None
+    for u in listaUsuarios:
+        if u["email"] == email:
+            usuario_encontrado = u
+
+    if usuario_encontrado is None:
         print("No se encontró un usuario con ese email.")
         print("")
         return 0
     
-    if usuario_encontrado[0]["clave"] == clave:
-        print("Inicio de sesion exitoso, bienvenido " + usuario_encontrado[0]["usuario"])
+    if usuario_encontrado["clave"] == clave:
+        print("Inicio de sesion exitoso, bienvenido " + usuario_encontrado["usuario"])
         print("")
-        return usuario_encontrado[0]
+        return usuario_encontrado
     else:
         print("Contraseña incorrecta.")
         print("")
         return 0
+
 
 def editarUsuario(usuario):
     if usuario == 0 or usuario == None:
@@ -78,9 +83,12 @@ def editarUsuario(usuario):
         print("")
         return
     
-    usuario_obj = list(filter(lambda u: u["id"] == usuario["id"], listaUsuarios))
-    
-    if len(usuario_obj) == 0:
+    usuario_obj = None
+    for u in listaUsuarios:
+        if u["id"] == usuario["id"]:
+            usuario_obj = u
+
+    if usuario_obj is None:
         print("No se encontró un usuario con ese ID")
         print("")
         return
@@ -92,9 +100,9 @@ def editarUsuario(usuario):
     nueva_clave = input("Nueva contraseña: ")
 
     if nuevo_usuario != "":
-        usuario_obj[0]["usuario"] = nuevo_usuario
+        usuario_obj["usuario"] = nuevo_usuario
     if nuevo_email != "":
-        usuario_obj[0]["email"] = nuevo_email
+        usuario_obj["email"] = nuevo_email
     if nueva_img != "":
         usuario_obj[0]["img"] = nueva_img
     if nueva_clave != "":
@@ -106,22 +114,24 @@ def editarUsuario(usuario):
     print("")
     return
 
+
 def eliminarUsuario(usuario):
     if usuario == 0 or usuario == None:
-        print("Debe iniciar sesión para eliminar su cuenta")
-        print("")
+        print("Debe iniciar sesión para eliminar su cuenta\n")
         return usuario
     
-    usuario_obj = list(filter(lambda u: u["id"] == usuario["id"], listaUsuarios))
-    
-    if not usuario_obj:
-        print("Error: No se encontró la información del usuario")
-        print("")
+    usuario_obj = None
+    for u in listaUsuarios:
+        if u["id"] == usuario["id"]:
+            usuario_obj = u
+
+    if usuario_obj is None:
+        print("Error: No se encontró la información del usuario\n")
         return usuario
 
     print(f"El usuario '{usuario['usuario']}' será eliminado.")
-    confirmacion = input("Para confirmar la eliminacion responda 'Si' o 'No': ")
-    while confirmacion.lower() != "si" and confirmacion.lower() != "no":
+    confirmacion = input("Para confirmar la eliminación responda 'Si' o 'No': ")
+    while confirmacion.lower() not in ["si", "no"]:
         confirmacion = input("Respuesta inválida. Responda 'Si' o 'No': ")
 
     if confirmacion.lower() == "si":
@@ -138,17 +148,16 @@ def eliminarUsuario(usuario):
         
         return 0
     else:
-        print("Operación de eliminación cancelada.")
+        print("Operación de eliminación cancelada.\n")
         return usuario
+
 
 def cerrarSesion(usuario):
     if usuario == 0 or usuario == None:
-        print("No hay ninguna sesión iniciada")
-        print("")
+        print("No hay ninguna sesión iniciada\n")
         return 0
     
-    print(f"Sesión de {usuario['usuario']} cerrada correctamente")
-    print("")
+    print(f"Sesión de {usuario['usuario']} cerrada correctamente\n")
     return 0
 
 def editarUsuarioAdmin():
@@ -213,13 +222,17 @@ def mostrarUsuarios():
         return
 
     for u in listaUsuarios:
-        print("Usuario:", u["usuario"], "| Email:", u["email"], "| Img:", u["img"], "| Reseñas:", u["cantidad_reseñas"])
+        datos = (u["id"], u["usuario"], u["email"], u["img"], u["cantidad_resenas"], u["rol"])
+        id, usuario, email, img, cantidad_resenas, rol = datos
+
+        print(f"ID: {id} | Usuario: {usuario} | Email: {email} | Img: {img} | Reseñas: {cantidad_resenas} | Rol: {rol}")
     print("")
     return
 
+
 def crudUsuarios(usuario):
     if usuario != 0 and usuario != None:
-        print(f'Usuario: {usuario["usuario"]} \nReseñas: {usuario["cantidad_reseñas"]}')
+        print(f'Usuario: {usuario["usuario"]} \nReseñas: {usuario["cantidad_resenas"]}')
     print("")
     ejecuta = True
     while ejecuta != False:
