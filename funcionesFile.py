@@ -1,11 +1,11 @@
 import os
 import json
-from db import listaPeliculas, listaResenas, listaUsuarios
+# from db import listaPeliculas, listaResenas, listaUsuarios
 
 rutaRaiz = os.path.dirname(__file__)
 
 def traerJson(nombreArchivo):
-    file = os.path.join(rutaRaiz, nombreArchivo)
+    file = os.path.join(rutaRaiz, "db", nombreArchivo)
     try:
         with open(file, "r", encoding='utf-8') as file:
             data = json.load(file)
@@ -18,7 +18,7 @@ def traerJson(nombreArchivo):
 #Se utiliza "ensure_ascii=False" para evitar que los textos que llevan tildes sean escapados al transcribir de un formato a otro
 #Se realiza manejo de errores para prevenir que el programa "rompa" en caso de algun error en la creacion/escritura del archivo json
 def convertirJson(nombreArchivo, dbPython):
-    fileJSON = os.path.join(rutaRaiz, nombreArchivo)
+    fileJSON = os.path.join(rutaRaiz, "db", nombreArchivo)
 
     try:
         with open(fileJSON, "w", encoding='utf-8') as file:

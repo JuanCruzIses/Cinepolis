@@ -36,15 +36,6 @@
         "rol": "user"
     },
     {
-        "id": 3,
-        "usuario": "user3",
-        "email": "user3@example.com",
-        "img": "",
-        "cantidad_resenas": 7,
-        "clave": "clave3",
-        "rol": "user"
-    },
-    {
         "id": 5,
         "usuario": "user5",
         "email": "user5@example.com",

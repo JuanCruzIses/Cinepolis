@@ -94,9 +94,9 @@ def editarUsuario(usuario):
         return
 
     print("Deja el campo vacio si no queres cambiarlo")
-    nuevo_usuario = input(f"Nuevo nombre de usuario (actual: {usuario_obj[0]['usuario']}): ")
-    nuevo_email = input(f"Nuevo email (actual: {usuario_obj[0]['email']}): ")
-    nueva_img = input(f"Nueva url de imagen (actual: {usuario_obj[0]['img']}): ")
+    nuevo_usuario = input(f"Nuevo nombre de usuario (actual: {usuario_obj['usuario']}): ")
+    nuevo_email = input(f"Nuevo email (actual: {usuario_obj['email']}): ")
+    nueva_img = input(f"Nueva url de imagen (actual: {usuario_obj['img']}): ")
     nueva_clave = input("Nueva contraseña: ")
 
     if nuevo_usuario != "":
@@ -104,9 +104,9 @@ def editarUsuario(usuario):
     if nuevo_email != "":
         usuario_obj["email"] = nuevo_email
     if nueva_img != "":
-        usuario_obj[0]["img"] = nueva_img
+        usuario_obj["img"] = nueva_img
     if nueva_clave != "":
-        usuario_obj[0]["clave"] = nueva_clave
+        usuario_obj["clave"] = nueva_clave
 
     convertirJson("usuarios.json", listaUsuarios)
     
@@ -142,7 +142,7 @@ def eliminarUsuario(usuario):
             else:
                 i += 1
     
-        listaUsuarios.remove(usuario_obj[0])
+        listaUsuarios.remove(usuario_obj)
         convertirJson("usuarios.json", listaUsuarios)
         print(f"El usuario '{usuario['usuario']}' ha sido eliminado correctamente.")
         
@@ -289,6 +289,8 @@ def crudUsuarios(usuario):
                         ejecuta = False
                     else:
                         print("Opción inválida")
+                    print("1. Editar usuario \n2. Eliminar usuario \n3. Cerrar sesión \n4. Volver al menu principal")
+                    opcion = int(input("Seleccione la opcion: "))
                     
                 return usuario
 
