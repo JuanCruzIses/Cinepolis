@@ -358,5 +358,13 @@
         "puntuacion": 6.5,
         "titulo": "Dura pero lenta",
         "comentario": "La historia es fuerte pero le falta dinamismo."
+    },
+    {
+        "id": 51,
+        "usuario": "martin",
+        "pelicula": "el silencion de los inocentes",
+        "puntuacion": 2.0,
+        "titulo": "reseñita",
+        "comentario": "medio malarda"
     }
 ]
