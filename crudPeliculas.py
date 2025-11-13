@@ -73,6 +73,10 @@ def crearPelicula():
         listaPeliculas.append(nueva_pelicula)
         convertirJson("peliculas.json", listaPeliculas)
         print("La película '" + nueva_pelicula["titulo"] + "' fue creada exitosamente con ID " + str(nueva_pelicula["id"]) + ".")
+        # Mostrar detalles de la película recién creada
+        print("Detalles de la película creada:")
+        print(f"ID: {nueva_pelicula['id']}\nTítulo: {nueva_pelicula['titulo']}\nEstreno: {nueva_pelicula['estreno']}\nDirector: {nueva_pelicula['director']}")
+        print(f"Géneros: {', '.join(nueva_pelicula.get('generos', []))}\nSinopsis: {nueva_pelicula.get('sinopsis', '')}\nPóster: {nueva_pelicula.get('poster', '')}")
         print("")
 
         continuar = input("¿Desea crear otra película? (Si / No): ")

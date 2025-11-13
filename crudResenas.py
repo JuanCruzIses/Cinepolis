@@ -92,6 +92,11 @@ def crearResenas():
         listaResenas.append(nueva_resena)
         print(f"La reseña de '{pelicula}' por '{usuario}' fue creada exitosamente con ID {nuevo_id}.\n")
 
+        # Mostrar detalles de la reseña creada
+        print("Detalles de la reseña creada:")
+        print(f"ID: {nueva_resena['id']}\nUsuario: {nueva_resena['usuario']}\nPelícula: {nueva_resena['pelicula']}\nPuntuación: {nueva_resena['puntuacion']}")
+        print(f"Título: {nueva_resena.get('titulo', '')}\nComentario: {nueva_resena.get('comentario', '')}")
+
         convertirJson("resenas.json", listaResenas)
 
         continuar = input("¿Desea crear otra reseña? (Si / No): ")
