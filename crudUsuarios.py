@@ -50,6 +50,10 @@ def crearUsuario():
     listaUsuarios.append(nuevo_usuario)
     convertirJson("usuarios.json", listaUsuarios)
     print("Usuario '" + usuario + "' creado exitosamente con ID " + str(nuevo_id))
+    # Mostrar detalles del usuario creado
+    print("Detalles del usuario creado:")
+    print(f"ID: {nuevo_usuario['id']}\nUsuario: {nuevo_usuario['usuario']}\nEmail: {nuevo_usuario['email']}\nRol: {nuevo_usuario['rol']}")
+    print(f"Img: {nuevo_usuario.get('img', '')} | Reseñas: {nuevo_usuario.get('cantidad_resenas', 0)}")
     return
 
 
