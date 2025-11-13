@@ -1,5 +1,5 @@
 from db import listaResenas
-from funcionesFile import convertirJson
+from funcionesFile import convertirJson, traerJson
 
 def mostrarEstadisticas():
     print("")
@@ -98,6 +98,26 @@ def crearResenas():
         print(f"Título: {nueva_resena.get('titulo', '')}\nComentario: {nueva_resena.get('comentario', '')}")
 
         convertirJson("resenas.json", listaResenas)
+
+        # Incrementar contador de reseñas del usuario
+        try:
+            listaUsuarios = traerJson("usuarios.json")
+            actualizado = False
+            for u in listaUsuarios:
+                if u.get("usuario", "").lower() == usuario.lower():
+                    if "cantidad_resenas" in u:
+                        u["cantidad_resenas"] = u.get("cantidad_resenas", 0) + 1
+                    elif "cantidad" in u:
+                        u["cantidad"] = u.get("cantidad", 0) + 1
+                    else:
+                        u["cantidad_resenas"] = 1
+                    actualizado = True
+                    break
+            if actualizado:
+                convertirJson("usuarios.json", listaUsuarios)
+                print(f"Se actualizó el contador de reseñas para el usuario '{usuario}'.")
+        except Exception as e:
+            print(f"Aviso: no se pudo actualizar el contador de reseñas del usuario: {e}")
 
         continuar = input("¿Desea crear otra reseña? (Si / No): ")
         while continuar.lower() not in ["si", "no"]:
