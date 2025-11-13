@@ -84,9 +84,60 @@ def mostrarPeliculas():
     print("")
     print("----- Listado de películas -----")
     listaPeliculas = traerJson("peliculas.json")
+
+    if len(listaPeliculas) == 0:
+        print("No hay películas registradas.")
+        print("")
+        return
+
+    accion = input("¿Desea aplicar un filtro u orden? (Filtro / Orden / No): ")
+    while accion.lower() not in ["filtro", "orden", "no"]:
+        accion = input("Respuesta inválida. Responda 'Filtro', 'Orden' o 'No': ")
+
+    if accion.lower() == "filtro":
+        print("Filtrar por:\n1. Género\n2. Director")
+        opcion = input("Seleccione una opción: ")
+
+        while opcion not in ["1", "2"]:
+            opcion = input("Opción inválida. Seleccione 1 o 2: ")
+
+        peliculas_filtradas = []
+
+        if opcion == "1":
+            genero = input("Ingrese el género a buscar: ").lower()
+            for pelicula in listaPeliculas:
+                for g in pelicula["generos"]:
+                    if genero in g.lower():
+                        peliculas_filtradas.append(pelicula)
+
+        elif opcion == "2":
+            director = input("Ingrese el nombre del director: ").lower()
+            for pelicula in listaPeliculas:
+                if director in pelicula["director"].lower():
+                    peliculas_filtradas.append(pelicula)
+
+        listaPeliculas = peliculas_filtradas
+
+    elif accion.lower() == "orden":
+        print("Ordenar por:\n1. Año de estreno\n2. Título (alfabéticamente)")
+        opcion = input("Seleccione una opción: ")
+
+        while opcion not in ["1", "2"]:
+            opcion = input("Opción inválida. Seleccione 1 o 2: ")
+
+        if opcion == "1":
+            listaPeliculas = sorted(listaPeliculas, key=lambda x: x["estreno"])
+        elif opcion == "2":
+            listaPeliculas = sorted(listaPeliculas, key=lambda x: x["titulo"].lower())
+
+    if len(listaPeliculas) == 0:
+        print("No se encontraron películas con ese criterio.")
+        print("")
+        return
+
     for pelicula in listaPeliculas:
         datos = (pelicula["id"], pelicula["titulo"], pelicula["estreno"], pelicula["director"])
-        id, titulo, estreno, director = datos  # Desempaquetado de tupla
+        id, titulo, estreno, director = datos
 
         generos = ", ".join(pelicula["generos"])
         sinopsis = pelicula["sinopsis"]
@@ -94,6 +145,9 @@ def mostrarPeliculas():
 
         print(f"ID: {id}\nTítulo: {titulo}\nEstreno: {estreno}\nDirector: {director}\nGéneros: {generos}\nSinopsis: {sinopsis}\nPóster: {poster}")
         print("-------------------------------\n")
+
+
+
 
 #----> Editar película <----
 def editarPelicula(usuario):
