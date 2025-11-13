@@ -466,5 +466,14 @@
         "cantidad_resenas": 0,
         "clave": "123456789",
         "rol": "user"
+    },
+    {
+        "id": 53,
+        "usuario": "martin",
+        "email": "a@gmail.com",
+        "img": "",
+        "cantidad_resenas": 0,
+        "clave": "12345678",
+        "rol": "user"
     }
 ]

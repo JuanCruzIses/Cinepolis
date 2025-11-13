@@ -43,7 +43,7 @@ def crearUsuario():
         "email": email,
         "img": img,
         "cantidad_resenas": 0,
-        clave: clave,
+        "clave": clave,
         "rol": "user"
     }
 
@@ -66,7 +66,6 @@ def iniciarSesion():
         print("No se encontró un usuario con ese email.")
         print("")
         return 0
-    
     if usuario_encontrado["clave"] == clave:
         print("Inicio de sesion exitoso, bienvenido " + usuario_encontrado["usuario"])
         print("")
