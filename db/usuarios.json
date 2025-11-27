@@ -475,5 +475,14 @@
         "cantidad_resenas": 1,
         "clave": "12345678",
         "rol": "user"
+    },
+    {
+        "id": 54,
+        "usuario": "JuanCruz",
+        "email": "juancruz@gmail.com",
+        "img": "",
+        "cantidad_resenas": 0,
+        "clave": "12345",
+        "rol": "user"
     }
 ]
