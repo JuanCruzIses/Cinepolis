@@ -60,10 +60,22 @@ def crearPelicula():
         # TUPLA
         datos_pelicula = (nuevo_id, titulo, estreno, director)
 
+        try:
+            nueva_id = int(datos_pelicula[0])
+        except (ValueError, TypeError):
+            print("ID inválido. Se canceló la creación de la película.")
+            return
+
+        try:
+            estreno_int = int(datos_pelicula[2])
+        except (ValueError, TypeError):
+            print("Año de estreno inválido. Se canceló la creación de la película.")
+            return
+
         nueva_pelicula = {
-            "id": datos_pelicula[0],
+            "id": nueva_id,
             "titulo": datos_pelicula[1],
-            "estreno": datos_pelicula[2],
+            "estreno": estreno_int,
             "director": datos_pelicula[3],
             "generos": list(generos),
             "sinopsis": sinopsis,
@@ -149,7 +161,6 @@ def mostrarPeliculas():
 
         print(f"ID: {id}\nTítulo: {titulo}\nEstreno: {estreno}\nDirector: {director}\nGéneros: {generos}\nSinopsis: {sinopsis}\nPóster: {poster}")
         print("-------------------------------\n")
-
 
 
 
@@ -246,7 +257,11 @@ def crudPeliculas(usuario):
             #Funciones disponibles si el USUARIO TIENE ROL 'ADMIN'
             if usuario["rol"] == "admin":
                 print("1. Crear película \n2. Editar película \n3. Eliminar película \n4. Mostrar películas \n5. Volver al menú principal")
-                opcionElegida = int(input("Seleccione la opción a ejecutar:"))
+                try:
+                    opcionElegida = int(input("Seleccione la opción a ejecutar:"))
+                except ValueError:
+                    print("Opción inválida (debe ingresar un número). Volviendo al menú.")
+                    return
 
                 if opcionElegida == 1:
                     crearPelicula()

@@ -26,16 +26,23 @@ def buscarPelicula(usuario):
             for i in range(len(resultados)):
                 print(f"{i+1}. {resultados[i]['titulo']}")
             print("")
-            numeroPeliculaElegida = int(input("Seleccione el número de la película deseada o 0 para cancelar la operacion: "))
-            while numeroPeliculaElegida < 0 or numeroPeliculaElegida > len(resultados):
-                numeroPeliculaElegida = int(input("Número inválido. Seleccione un número de la lista brindada: "))
-            if numeroPeliculaElegida != 0:
-                seleccionada = resultados[numeroPeliculaElegida - 1]
+            seleccion = input("Ingrese el número de la película seleccionada (o ENTER para cancelar): ").strip()
+            if seleccion == "":
+                print("Operación cancelada.")
+                return "0"
+            try:
+                idx = int(seleccion) - 1
+            except ValueError:
+                print("Selección inválida (debe ingresar un número).")
+                return "0"
+
+            if 0 <= idx < len(resultados):
+                seleccionada = resultados[idx]
                 if (usuario["rol"] != "admin"):
                     print(f'Título: {seleccionada["titulo"]} \nAño: {seleccionada["estreno"]} \nDirector: {seleccionada["director"]} \nGénero(s): {seleccionada["generos"]} \nPóster:  {"No disponible" if seleccionada["poster"] == "" else seleccionada["poster"]} \nSinopsis: {seleccionada["sinopsis"]}')
                 return seleccionada
             else:
-                print("Operación cancelada.")
+                print("Número fuera de rango.")
                 return "0"
         else:
             print(f"No se encontraron resultados para '{peliculaABuscar}'.")

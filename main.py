@@ -96,24 +96,33 @@ def menu_principal():
 
         opcion = input(f"\n{YELLOW}Elegí una opción: {RESET}")
 
-        if opcion == "1":
-            menu_peliculas()
-        elif opcion == "2":
-            menu_resenas()
-        elif opcion == "3":
-            menu_usuarios()
-        elif opcion == "4":
-            if current_user:
-                logout()
-            else:
-                login()
-        elif opcion == "0":
-            limpiar()
-            print(f"{CYAN}👋 ¡Gracias por usar Cinepolis!{RESET}\n")
-            break
-        else:
-            print(f"{RED}⚠️ Opción inválida{RESET}")
+        invalid_input = False
+        try:
+            opcion_int = int(opcion)
+        except ValueError:
+            invalid_input = True
+            print(f"{RED}⚠️ Opción inválida (debe ingresar un número){RESET}")
             pausar()
+
+        if not invalid_input:
+            if opcion_int == 1:
+                menu_peliculas()
+            elif opcion_int == 2:
+                menu_resenas()
+            elif opcion_int == 3:
+                menu_usuarios()
+            elif opcion_int == 4:
+                if current_user:
+                    logout()
+                else:
+                    login()
+            elif opcion_int == 0:
+                limpiar()
+                print(f"{CYAN}👋 ¡Gracias por usar Cinepolis!{RESET}\n")
+                break
+            else:
+                print(f"{RED}⚠️ Opción inválida{RESET}")
+                pausar()
 
 
 def menu_peliculas():
@@ -128,27 +137,43 @@ def menu_peliculas():
 
         opcion = input(f"\n{YELLOW}Elegí una opción: {RESET}")
 
-        if opcion == "1":
-            limpiar()
-            mostrarPeliculas()
+        invalid_input = False
+        try:
+            opcion_int = int(opcion)
+        except ValueError:
+            invalid_input = True
+            print(f"{RED}⚠️ Opción inválida (debe ingresar un número){RESET}")
             pausar()
-        elif opcion == "2":
-            if requiere_admin():
-                crearPelicula()
+
+        if not invalid_input:
+            if opcion_int == 1:
+                limpiar()
+                mostrarPeliculas()
                 pausar()
-        elif opcion == "3":
-            if requiere_admin():
-                editarPelicula(current_user)
+            elif opcion_int == 2:
+                if requiere_admin():
+                    crearPelicula()
+                    pausar()
+            elif opcion_int == 3:
+                if requiere_admin():
+                    try:
+                        editarPelicula(current_user)
+                    except Exception as e:
+                        print(f"{RED}❌ Error al editar película: {e}{RESET}")
+                    pausar()
+            elif opcion_int == 4:
+                if requiere_admin():
+                    try:
+                        eliminarPelicula(current_user)
+                    except Exception as e:
+                        print(f"{RED}❌ Error al eliminar película: {e}{RESET}")
+                    pausar()
+            elif opcion_int == 0:
+                break
+            else:
+                print(f"{RED}⚠️ Opción inválida{RESET}")
                 pausar()
-        elif opcion == "4":
-            if requiere_admin():
-                eliminarPelicula(current_user)
-                pausar()
-        elif opcion == "0":
-            break
-        else:
-            print(f"{RED}⚠️ Opción inválida{RESET}")
-            pausar()
+
 
 def menu_resenas():
     while True:
@@ -161,24 +186,36 @@ def menu_resenas():
 
         opcion = input(f"\n{YELLOW}Elegí una opción: {RESET}")
 
-        if opcion == "1":
-            limpiar()
-            mostrarResenas()
+        invalid_input = False
+        try:
+            opcion_int = int(opcion)
+        except ValueError:
+            invalid_input = True
+            print(f"{RED}⚠️ Opción inválida (debe ingresar un número){RESET}")
             pausar()
-        elif opcion == "2":
-            if requiere_login():
-                crearResenas()
+
+        if not invalid_input:
+            if opcion_int == 1:
+                limpiar()
+                mostrarResenas()
                 pausar()
-        elif opcion == "3":
-            limpiar()
-            from crudResenas import mostrarEstadisticas
-            mostrarEstadisticas()
-            pausar()
-        elif opcion == "0":
-            break
-        else:
-            print(f"{RED}⚠️ Opción inválida{RESET}")
-            pausar()
+            elif opcion_int == 2:
+                if requiere_login():
+                    try:
+                        crearResenas()
+                    except Exception as e:
+                        print(f"{RED}❌ Error al crear reseña: {e}{RESET}")
+                    pausar()
+            elif opcion_int == 3:
+                limpiar()
+                from crudResenas import mostrarEstadisticas
+                mostrarEstadisticas()
+                pausar()
+            elif opcion_int == 0:
+                break
+            else:
+                print(f"{RED}⚠️ Opción inválida{RESET}")
+                pausar()
 
 
 def menu_usuarios():

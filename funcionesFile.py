@@ -11,7 +11,8 @@ def traerJson(nombreArchivo):
             data = json.load(file)
             return data
     except Exception as e:
-        return(f'Error: {e}')
+        print(f"Error al leer {nombreArchivo}: {e}")
+        return []
 
 # Funcion creada para realizar el pasaje a formato JSON
 #La funcion es dinamica ya que recibe como parametros el nombre del archivo que se desea crear y el objeto python que se desea escribir en el archivo JSON
@@ -25,7 +26,7 @@ def convertirJson(nombreArchivo, dbPython):
             json.dump(dbPython, file, indent=4, ensure_ascii=False)
             print(f'Se realizo de forma correcta la migracion a {nombreArchivo}')
     except Exception as e:
-        print(f'Fallo la migracion a {nombreArchivo}')
+        print(f'Fallo la migracion a {nombreArchivo}: {e}')
 
 # ---- Ejecuciones utilizadas para realizar el traspaso de las listas de diccionarios utilizados como DB originalmente, a formato JSON
 # convertirJson("peliculas.json", listaPeliculas)
