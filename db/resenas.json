@@ -361,10 +361,50 @@
     },
     {
         "id": 51,
+        "usuario": "lolo",
+        "pelicula": "titulo",
+        "puntuacion": 6.0,
+        "titulo": "aaa",
+        "comentario": "aaa"
+    },
+    {
+        "id": 52,
+        "usuario": "Martin el intelectual",
+        "pelicula": "Monsters Inc.",
+        "puntuacion": 6.0,
+        "titulo": "opinion",
+        "comentario": "maso maso la peli"
+    },
+    {
+        "id": 53,
         "usuario": "martin",
-        "pelicula": "batman",
+        "pelicula": "inception",
         "puntuacion": 8.0,
-        "titulo": "muy bueno",
-        "comentario": "excelente"
+        "titulo": "mal",
+        "comentario": "muy mal"
+    },
+    {
+        "id": 54,
+        "usuario": "martni",
+        "pelicula": "inception",
+        "puntuacion": 8.0,
+        "titulo": "maso",
+        "comentario": "maso maso"
+    },
+    {
+        "id": 55,
+        "usuario": "martin",
+        "pelicula": "casablanca",
+        "puntuacion": 2.0,
+        "titulo": "mala",
+        "comentario": "mala mala"
+    },
+    {
+        "id": 56,
+        "usuario": "joaco",
+        "pelicula": "casablanca",
+        "puntuacion": 9.0,
+        "titulo": "buenisimaa",
+        "comentario": "buena buena"
     }
 ]
