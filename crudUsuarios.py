@@ -4,6 +4,9 @@ from funcionesFile import traerJson, convertirJson
 
 listaUsuarios = traerJson("usuarios.json")
 # Gestión de Usuarios (CRUD)
+
+# Registra un nuevo usuario en el sistema verificando algunas condiciones como que no este vacío, no se encuentre ya registrado, entre otras.
+# Solicita datos por consola, valida duplicados recorriendo la lista y guarda el nuevo usuario en el archivo JSON
 def crearUsuario():
     if len(listaUsuarios) == 0:
         nuevo_id = 1
@@ -56,7 +59,8 @@ def crearUsuario():
     print(f"Img: {nuevo_usuario.get('img', '')} | Reseñas: {nuevo_usuario.get('cantidad_resenas', 0)}")
     return
 
-
+# Permite que un usuario ingrese al sistema con su email y contraseña segun si los datos ingresados se encuentran registrados en la DB
+# Busca el email en la lista de usuarios y compara la contraseña, devuelve el objeto usuario si es correcto
 def iniciarSesion():
     email = input("Ingrese su email: ")
     clave = input("Ingrese su contraseña: ")
@@ -79,7 +83,8 @@ def iniciarSesion():
         print("")
         return 0
 
-
+# Permite al usuario modificar su propia informacion si se cumplen algunas condiciones como estar logueado y que el dato ingresado sea el correcto
+# Busca el usuario por ID en la lista, solicita nuevos datos y actualiza solo los campos que no esten vacíos
 def editarUsuario(usuario):
     if usuario == 0 or usuario == None:
         print("Debe iniciar sesión para editar su perfil")
@@ -117,7 +122,8 @@ def editarUsuario(usuario):
     print("")
     return
 
-
+# Elimina la cuenta del usuario y todas sus reseñas
+# Solicita confirmacion, busca y elimina las reseñas del usuario, luego lo remueve de la lista
 def eliminarUsuario(usuario):
     if usuario == 0 or usuario == None:
         print("Debe iniciar sesión para eliminar su cuenta\n")
@@ -154,7 +160,8 @@ def eliminarUsuario(usuario):
         print("Operación de eliminación cancelada.\n")
         return usuario
 
-
+# Cierra la sesión del usuario actual cambiando su estado a 0 (sin sesión iniciada)
+# Devuelve 0 para indicar que no hay usuario logueado en el sistema
 def cerrarSesion(usuario):
     if usuario == 0 or usuario == None:
         print("No hay ninguna sesión iniciada\n")
@@ -163,6 +170,8 @@ def cerrarSesion(usuario):
     print(f"Sesión de {usuario['usuario']} cerrada correctamente\n")
     return 0
 
+# Permite al administrador modificar la informacion de cualquier usuario a partir de la comprobacion de su rol id
+# Busca el usuario por nombre, solicita nuevos datos y actualiza el archivo
 def editarUsuarioAdmin():
     nombre_usuario = input("Ingrese el nombre de usuario que desea editar: ")
 
@@ -196,6 +205,8 @@ def editarUsuarioAdmin():
     print("")
     return
 
+# Permite al administrador eliminar cualquier usuario del sistema a partir de la comprobación de su rol id
+# Busca por email usando filter, elimina sus reseñas asociadas y lo remueve de la lista
 def eliminarUsuarioAdmin():
     email = input("Ingrese el email del usuario a eliminar: ")
     
@@ -218,6 +229,8 @@ def eliminarUsuarioAdmin():
     print(f"El usuario '{usuario_obj[0]['usuario']}' y sus reseñas han sido eliminados correctamente.")
     return
 
+# Muestra en pantalla todos los usuarios registrados
+# Recorre la lista de usuarios y muestra sus datos en formato tabla
 def mostrarUsuarios():
     print("----- Listado de usuarios -----")
     if len(listaUsuarios) == 0:
@@ -232,7 +245,8 @@ def mostrarUsuarios():
     print("")
     return
 
-
+# Menu principal para gestionar las distitnas opciones del CRUD de usuarios según el tipo de rol
+# Muestra diferentes opciones en un bucle dependiendo si el usuario esta logueado y su rol (admin o user)
 def crudUsuarios(usuario):
     if usuario != 0 and usuario != None:
         print(f'Usuario: {usuario["usuario"]} \nReseñas: {usuario["cantidad_resenas"]}')

@@ -1272,5 +1272,28 @@
         ],
         "sinopsis": "Sinopsis de prueba con numeros 1234",
         "poster": ""
+    },
+    {
+        "id": 104,
+        "titulo": "batman",
+        "estreno": 1988,
+        "director": "nolan",
+        "generos": [
+            "terror"
+        ],
+        "sinopsis": "tremenda",
+        "poster": ""
+    },
+    {
+        "id": 105,
+        "titulo": "las aventuras de martin",
+        "estreno": 2015,
+        "director": "martinsinho",
+        "generos": [
+            "comedia",
+            "terror"
+        ],
+        "sinopsis": "",
+        "poster": ""
     }
 ]
